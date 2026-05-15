@@ -1,0 +1,250 @@
+{
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\jest.config.js": {
+    "mtime": 1778525539.4737108,
+    "hash": "a1a5584b10b6f1b0e76bb43240bb4410"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\next.config.mjs": {
+    "mtime": 1778479301.0954862,
+    "hash": "21958f5752add43cc47ab0ff5172cd46"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\postcss.config.mjs": {
+    "mtime": 1778479301.1089466,
+    "hash": "b7941c02b947e17ae32f67ae7e664ec8"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\tailwind.config.js": {
+    "mtime": 1778479517.4964788,
+    "hash": "2c78625b5647da2b2368aa26cffe90cb"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\coverage\\lcov-report\\block-navigation.js": {
+    "mtime": 1778525943.6183076,
+    "hash": "13c8dd65c9b9571b0b4960aeaf3fab0a"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\coverage\\lcov-report\\prettify.js": {
+    "mtime": 1778525943.6407228,
+    "hash": "6051903a2f7363ee232a01bd32f60b6a"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\coverage\\lcov-report\\sorter.js": {
+    "mtime": 1778525943.627707,
+    "hash": "e2f5129270684bf835820ca4433b4abb"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\middleware.js": {
+    "mtime": 1778479915.2671509,
+    "hash": "8429783d22d4f1addfcf5f8920aded68"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\app\\layout.js": {
+    "mtime": 1778519179.896925,
+    "hash": "059214d8b7e2e51db9454ef1b49e1ba0"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\app\\page.js": {
+    "mtime": 1778479517.4943776,
+    "hash": "aa9e4418d4f52fe3ddec6b8fd4aa33aa"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\app\\(auth)\\login\\page.js": {
+    "mtime": 1778526293.7270598,
+    "hash": "1f17b3808c97354d0e9e2c674731a549"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\app\\(auth)\\signup\\page.js": {
+    "mtime": 1778479852.1148438,
+    "hash": "bb2d91412f5a7779b9eb0828acfc057c"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\app\\(dashboard)\\layout.js": {
+    "mtime": 1778519476.203589,
+    "hash": "b75cf2f400b328644e070b363141354e"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\app\\(dashboard)\\dashboard\\page.js": {
+    "mtime": 1778479859.2625527,
+    "hash": "a064b05d8c5e90ba12ef38fea7993b59"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\app\\(dashboard)\\invoices\\new\\page.js": {
+    "mtime": 1778479863.2106307,
+    "hash": "48b17749f2536fb4b78b626f08d068f7"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\app\\(dashboard)\\invoices\\scan\\page.js": {
+    "mtime": 1778479866.9705546,
+    "hash": "ef62bf766efd4c496637d888d32491cf"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\app\\(dashboard)\\invoices\\[id]\\page.js": {
+    "mtime": 1778479871.4416943,
+    "hash": "3938e6d4081d551ad81ffab3cf5a19d1"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\app\\(dashboard)\\invoices\\[id]\\edit\\page.js": {
+    "mtime": 1778479875.1723018,
+    "hash": "dc8bc6faf61bcf238a9144cf1c542818"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\app\\(dashboard)\\settings\\page.js": {
+    "mtime": 1778527807.5676904,
+    "hash": "dc86b096fbbefca50e01b59e230d9c9c"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\app\\actions\\auth.js": {
+    "mtime": 1778519273.9621618,
+    "hash": "7e31090157fc65c14b62e11b8ade9004"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\app\\actions\\settings.js": {
+    "mtime": 1778527557.343403,
+    "hash": "1a11251593a0fa51499ff91d910370ae"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\Sidebar.js": {
+    "mtime": 1778519353.8792944,
+    "hash": "528249a66878ecbc3eced5f5e2cbac9e"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\TopBar.js": {
+    "mtime": 1778519416.5798054,
+    "hash": "64bb413f7b9c1568d306a0398855714d"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\settings\\BillingProfileModal.js": {
+    "mtime": 1778537694.61276,
+    "hash": "36e48e97ef2443ee33a3e72f3312899d"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\settings\\BillingProfilesTab.js": {
+    "mtime": 1778537683.812006,
+    "hash": "a0c065c87fae24479831e2cfe00d25bc"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\settings\\DriverModal.js": {
+    "mtime": 1778538622.465396,
+    "hash": "07e80035dce289c4f832c3e768bd2104"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\settings\\DriversTab.js": {
+    "mtime": 1778538641.9928026,
+    "hash": "18dbd22e6fdbec27a9fadd6fd405ee1e"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\settings\\RateRuleModal.js": {
+    "mtime": 1778538415.5818,
+    "hash": "6b08dab562804878aa8122b8f3f995e4"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\settings\\RateRulesTab.js": {
+    "mtime": 1778538443.277353,
+    "hash": "9a5cc88c18b6e0e38d0498d600bca1da"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\settings\\SettingsTabs.js": {
+    "mtime": 1778538297.5840962,
+    "hash": "54ecaec3d47835de3e5f7cb66ed23851"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\settings\\TruckModal.js": {
+    "mtime": 1778538624.2546422,
+    "hash": "a4094cf3085e39d2c3e622ac9a788e5a"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\settings\\TrucksTab.js": {
+    "mtime": 1778538645.6581562,
+    "hash": "a1bae937c7694840475b50e53af18382"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\ui\\Badge.js": {
+    "mtime": 1778526263.779476,
+    "hash": "83116af3f2b8d5df9fe915f0e40cc796"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\ui\\Button.js": {
+    "mtime": 1778526245.6709578,
+    "hash": "eb5f1a8c7753c46f824adada42448a76"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\ui\\Card.js": {
+    "mtime": 1778526250.5729306,
+    "hash": "d5f9090232d8429a359bf17a6d878774"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\ui\\DataTable.js": {
+    "mtime": 1778526305.2729747,
+    "hash": "45c926bb21d81cd2266b6854a7a35077"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\ui\\EmptyState.js": {
+    "mtime": 1778526270.339987,
+    "hash": "eccfbf1c13fdff0b93fbde91e0de90a1"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\ui\\FormField.js": {
+    "mtime": 1778526295.8402896,
+    "hash": "663ae7c1e558ceda58316e44e69522db"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\ui\\Modal.js": {
+    "mtime": 1778526281.6211941,
+    "hash": "914e5f4a9f679e5ab87f7a6011db7be9"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\ui\\PageHeader.js": {
+    "mtime": 1778526256.5491197,
+    "hash": "d53ca7d8e0188dcb342cf8604de24774"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\ui\\Toast.js": {
+    "mtime": 1778526290.056082,
+    "hash": "844b32234a232169c691b1445aa50fc3"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\components\\ui\\ToggleSwitch.js": {
+    "mtime": 1778527563.4423583,
+    "hash": "e254e09eb9a6e51b550987513aed7147"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\lib\\anthropic.js": {
+    "mtime": 1778479897.441889,
+    "hash": "27144f60af912152eccd92af4f75d824"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\lib\\supabase\\client.js": {
+    "mtime": 1778479883.1393166,
+    "hash": "9e633e8d8efda04ef0aff8b8f9fe5b75"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\lib\\supabase\\middleware.js": {
+    "mtime": 1778479893.442016,
+    "hash": "b93600a6ed5e8701d5d0d6b1becebdbc"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\lib\\supabase\\server.js": {
+    "mtime": 1778479887.6877668,
+    "hash": "76a193e57f70785cb57c54871fa3876b"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\utils\\invoiceMath.js": {
+    "mtime": 1778525567.55903,
+    "hash": "74229b60a8da72c6038670390773e034"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\utils\\mileageEstimator.js": {
+    "mtime": 1778479910.813656,
+    "hash": "5292d0d4e35d5ebccac47f6b78259ab7"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\utils\\pdfTemplate.js": {
+    "mtime": 1778479906.3117259,
+    "hash": "55567ba9cca20ad587c102809f8a2783"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\src\\utils\\__tests__\\invoiceMath.test.js": {
+    "mtime": 1778525556.1269116,
+    "hash": "b505863dea13a5949879bee0a651c213"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\supabase\\seed.sql": {
+    "mtime": 1778523328.495916,
+    "hash": "4c95634c106944e745fc926e84c12d01"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\supabase\\migrations\\20260511000001_initial_schema.sql": {
+    "mtime": 1778522778.0374916,
+    "hash": "c75a481823fa79a6f2407a7e04e129d2"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\CLAUDE.md": {
+    "mtime": 1778523762.2851117,
+    "hash": "761b69ff1449bdabf98d1444fc5229c9"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\invoice-template.html": {
+    "mtime": 1778519033.7313118,
+    "hash": "89412597acb6625e0c79b1db05c5b96d"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\README.md": {
+    "mtime": 1778515136.4399068,
+    "hash": "cb5b27ed4f2fa90e60828d8f1c7f568a"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\Route90-Invoicer.md": {
+    "mtime": 1778478257.614799,
+    "hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\coverage\\lcov-report\\index.html": {
+    "mtime": 1778525943.6427205,
+    "hash": "e7f3c5ca94a92a149be68dce4eb37e54"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\coverage\\lcov-report\\invoiceMath.js.html": {
+    "mtime": 1778525943.6497197,
+    "hash": "2c428d63a8639ed3a1b7a8bd5f844d64"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\docs\\superpowers\\plans\\2026-05-11-auth-system.md": {
+    "mtime": 1778519001.6210623,
+    "hash": "085ee26d9f73914f2bf1af305ed59143"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\docs\\superpowers\\plans\\2026-05-11-settings-pages.md": {
+    "mtime": 1778527234.9158788,
+    "hash": "de4f9fb7be7ad504e01b29cf990381ca"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\coverage\\lcov-report\\favicon.png": {
+    "mtime": 1778525943.6193051,
+    "hash": "8c814a46f24208d0bc459bb2cf8b7b88"
+  },
+  "C:\\Users\\navi9\\code\\Projects\\Route90-Invoicer\\coverage\\lcov-report\\sort-arrow-sprite.png": {
+    "mtime": 1778525943.6203053,
+    "hash": "fd08a5625d21e34b1d6d9c026f2728a9"
+  }
+}

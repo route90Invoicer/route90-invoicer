@@ -1,0 +1,3916 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "dual_layer_auth_guard",
+        "label": "Dual-Layer Auth Guard (Middleware + Layout Server Check)",
+        "nodes": [
+          "middleware",
+          "supabase_middleware",
+          "dashboard_layout"
+        ],
+        "relation": "implement",
+        "confidence": "INFERRED",
+        "confidence_score": 0.95,
+        "source_file": "src/middleware.js"
+      },
+      {
+        "id": "dashboard_shell",
+        "label": "Dashboard Shell (Layout + Sidebar + TopBar)",
+        "nodes": [
+          "dashboard_layout",
+          "sidebar_component",
+          "topbar_component"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "src/app/(dashboard)/layout.js"
+      },
+      {
+        "id": "invoice_crud_pages",
+        "label": "Invoice CRUD Page Group (New, Scan, Detail, Edit)",
+        "nodes": [
+          "invoices_new_page",
+          "invoices_scan_page",
+          "invoice_detail_page",
+          "invoice_edit_page"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": null
+      },
+      {
+        "id": "auth_flow_triad",
+        "label": "Auth Flow: Middleware + Server Client + signOut Action",
+        "nodes": [
+          "supabase_middleware",
+          "supabase_server_client",
+          "auth_signout"
+        ],
+        "relation": "implement",
+        "confidence": "INFERRED",
+        "confidence_score": 0.95,
+        "source_file": "src/lib/supabase/middleware.js"
+      },
+      {
+        "id": "invoice_calculation_pipeline",
+        "label": "Invoice Calculation Pipeline",
+        "nodes": [
+          "invoicemath_calculatelinetotal",
+          "invoicemath_calculatesubtotal",
+          "invoicemath_calculatetotal"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "src/utils/invoiceMath.js"
+      },
+      {
+        "id": "dashboard_shell_triad",
+        "label": "Dashboard Shell: Sidebar + TopBar + signOut",
+        "nodes": [
+          "sidebar_component",
+          "topbar_component",
+          "auth_signout"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.9,
+        "source_file": "src/components/Sidebar.js"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "jest.config.js",
+      "file_type": "code",
+      "source_file": "jest.config.js",
+      "source_location": "L1",
+      "id": "jest_config_js",
+      "community": 52,
+      "norm_label": "jest.config.js"
+    },
+    {
+      "label": "next.config.mjs",
+      "file_type": "code",
+      "source_file": "next.config.mjs",
+      "source_location": "L1",
+      "id": "next_config_mjs",
+      "community": 47,
+      "norm_label": "next.config.mjs"
+    },
+    {
+      "label": "postcss.config.mjs",
+      "file_type": "code",
+      "source_file": "postcss.config.mjs",
+      "source_location": "L1",
+      "id": "postcss_config_mjs",
+      "community": 18,
+      "norm_label": "postcss.config.mjs"
+    },
+    {
+      "label": "tailwind.config.js",
+      "file_type": "code",
+      "source_file": "tailwind.config.js",
+      "source_location": "L1",
+      "id": "tailwind_config_js",
+      "community": 53,
+      "norm_label": "tailwind.config.js"
+    },
+    {
+      "label": "block-navigation.js",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/block-navigation.js",
+      "source_location": "L1",
+      "id": "coverage_lcov_report_block_navigation_js",
+      "community": 7,
+      "norm_label": "block-navigation.js"
+    },
+    {
+      "label": "toggleClass()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/block-navigation.js",
+      "source_location": "L24",
+      "id": "lcov_report_block_navigation_toggleclass",
+      "community": 7,
+      "norm_label": "toggleclass()"
+    },
+    {
+      "label": "makeCurrent()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/block-navigation.js",
+      "source_location": "L31",
+      "id": "lcov_report_block_navigation_makecurrent",
+      "community": 7,
+      "norm_label": "makecurrent()"
+    },
+    {
+      "label": "goToPrevious()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/block-navigation.js",
+      "source_location": "L41",
+      "id": "lcov_report_block_navigation_gotoprevious",
+      "community": 7,
+      "norm_label": "gotoprevious()"
+    },
+    {
+      "label": "goToNext()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/block-navigation.js",
+      "source_location": "L52",
+      "id": "lcov_report_block_navigation_gotonext",
+      "community": 7,
+      "norm_label": "gotonext()"
+    },
+    {
+      "label": "prettify.js",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L1",
+      "id": "coverage_lcov_report_prettify_js",
+      "community": 4,
+      "norm_label": "prettify.js"
+    },
+    {
+      "label": "k()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "id": "lcov_report_prettify_k",
+      "community": 4,
+      "norm_label": "k()"
+    },
+    {
+      "label": "a()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "id": "lcov_report_prettify_a",
+      "community": 4,
+      "norm_label": "a()"
+    },
+    {
+      "label": "B()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "id": "lcov_report_prettify_b",
+      "community": 4,
+      "norm_label": "b()"
+    },
+    {
+      "label": "o()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "id": "lcov_report_prettify_o",
+      "community": 4,
+      "norm_label": "o()"
+    },
+    {
+      "label": "g()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "id": "lcov_report_prettify_g",
+      "community": 4,
+      "norm_label": "g()"
+    },
+    {
+      "label": "i()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "id": "lcov_report_prettify_i",
+      "community": 4,
+      "norm_label": "i()"
+    },
+    {
+      "label": "Q()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "id": "lcov_report_prettify_q",
+      "community": 4,
+      "norm_label": "q()"
+    },
+    {
+      "label": "D()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "id": "lcov_report_prettify_d",
+      "community": 4,
+      "norm_label": "d()"
+    },
+    {
+      "label": "c()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "id": "lcov_report_prettify_c",
+      "community": 4,
+      "norm_label": "c()"
+    },
+    {
+      "label": "y()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "id": "lcov_report_prettify_y",
+      "community": 4,
+      "norm_label": "y()"
+    },
+    {
+      "label": "sorter.js",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L1",
+      "id": "coverage_lcov_report_sorter_js",
+      "community": 1,
+      "norm_label": "sorter.js"
+    },
+    {
+      "label": "getTable()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L11",
+      "id": "lcov_report_sorter_gettable",
+      "community": 1,
+      "norm_label": "gettable()"
+    },
+    {
+      "label": "getTableHeader()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L15",
+      "id": "lcov_report_sorter_gettableheader",
+      "community": 1,
+      "norm_label": "gettableheader()"
+    },
+    {
+      "label": "getTableBody()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L19",
+      "id": "lcov_report_sorter_gettablebody",
+      "community": 1,
+      "norm_label": "gettablebody()"
+    },
+    {
+      "label": "getNthColumn()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L23",
+      "id": "lcov_report_sorter_getnthcolumn",
+      "community": 1,
+      "norm_label": "getnthcolumn()"
+    },
+    {
+      "label": "onFilterInput()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L27",
+      "id": "lcov_report_sorter_onfilterinput",
+      "community": 1,
+      "norm_label": "onfilterinput()"
+    },
+    {
+      "label": "addSearchBox()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L59",
+      "id": "lcov_report_sorter_addsearchbox",
+      "community": 1,
+      "norm_label": "addsearchbox()"
+    },
+    {
+      "label": "loadColumns()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L67",
+      "id": "lcov_report_sorter_loadcolumns",
+      "community": 1,
+      "norm_label": "loadcolumns()"
+    },
+    {
+      "label": "loadRowData()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L92",
+      "id": "lcov_report_sorter_loadrowdata",
+      "community": 1,
+      "norm_label": "loadrowdata()"
+    },
+    {
+      "label": "loadData()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L111",
+      "id": "lcov_report_sorter_loaddata",
+      "community": 1,
+      "norm_label": "loaddata()"
+    },
+    {
+      "label": "sortByIndex()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L120",
+      "id": "lcov_report_sorter_sortbyindex",
+      "community": 1,
+      "norm_label": "sortbyindex()"
+    },
+    {
+      "label": "removeSortIndicators()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L151",
+      "id": "lcov_report_sorter_removesortindicators",
+      "community": 1,
+      "norm_label": "removesortindicators()"
+    },
+    {
+      "label": "addSortIndicators()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L159",
+      "id": "lcov_report_sorter_addsortindicators",
+      "community": 1,
+      "norm_label": "addsortindicators()"
+    },
+    {
+      "label": "enableUI()",
+      "file_type": "code",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L165",
+      "id": "lcov_report_sorter_enableui",
+      "community": 1,
+      "norm_label": "enableui()"
+    },
+    {
+      "label": "middleware.js",
+      "file_type": "code",
+      "source_file": "src/middleware.js",
+      "source_location": "L1",
+      "id": "src_middleware_js",
+      "community": 6,
+      "norm_label": "middleware.js"
+    },
+    {
+      "label": "middleware()",
+      "file_type": "code",
+      "source_file": "src/middleware.js",
+      "source_location": "L3",
+      "id": "src_middleware_middleware",
+      "community": 6,
+      "norm_label": "middleware()"
+    },
+    {
+      "label": "layout.js",
+      "file_type": "code",
+      "source_file": "src/app/layout.js",
+      "source_location": "L1",
+      "id": "src_app_layout_js",
+      "community": 8,
+      "norm_label": "layout.js"
+    },
+    {
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "src/app/layout.js",
+      "source_location": "L8",
+      "id": "app_layout_rootlayout",
+      "community": 8,
+      "norm_label": "rootlayout()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "src/app/page.js",
+      "source_location": "L1",
+      "id": "src_app_page_js",
+      "community": 19,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "Home()",
+      "file_type": "code",
+      "source_file": "src/app/page.js",
+      "source_location": "L3",
+      "id": "app_page_home",
+      "community": 19,
+      "norm_label": "home()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "src/app/(auth)/login/page.js",
+      "source_location": "L1",
+      "id": "src_app_auth_login_page_js",
+      "community": 20,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "LoginPage()",
+      "file_type": "code",
+      "source_file": "src/app/(auth)/login/page.js",
+      "source_location": "L7",
+      "id": "login_page_loginpage",
+      "community": 20,
+      "norm_label": "loginpage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "src/app/(auth)/signup/page.js",
+      "source_location": "L1",
+      "id": "src_app_auth_signup_page_js",
+      "community": 21,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "SignupPage()",
+      "file_type": "code",
+      "source_file": "src/app/(auth)/signup/page.js",
+      "source_location": "L1",
+      "id": "signup_page_signuppage",
+      "community": 21,
+      "norm_label": "signuppage()"
+    },
+    {
+      "label": "layout.js",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "L1",
+      "id": "src_app_dashboard_layout_js",
+      "community": 22,
+      "norm_label": "layout.js"
+    },
+    {
+      "label": "DashboardLayout()",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "L6",
+      "id": "dashboard_layout_dashboardlayout",
+      "community": 22,
+      "norm_label": "dashboardlayout()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/dashboard/page.js",
+      "source_location": "L1",
+      "id": "src_app_dashboard_dashboard_page_js",
+      "community": 23,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "DashboardPage()",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/dashboard/page.js",
+      "source_location": "L1",
+      "id": "dashboard_page_dashboardpage",
+      "community": 23,
+      "norm_label": "dashboardpage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/invoices/new/page.js",
+      "source_location": "L1",
+      "id": "src_app_dashboard_invoices_new_page_js",
+      "community": 24,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "NewInvoicePage()",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/invoices/new/page.js",
+      "source_location": "L1",
+      "id": "new_page_newinvoicepage",
+      "community": 24,
+      "norm_label": "newinvoicepage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/invoices/scan/page.js",
+      "source_location": "L1",
+      "id": "src_app_dashboard_invoices_scan_page_js",
+      "community": 25,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "ScanInvoicePage()",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/invoices/scan/page.js",
+      "source_location": "L1",
+      "id": "scan_page_scaninvoicepage",
+      "community": 25,
+      "norm_label": "scaninvoicepage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/invoices/[id]/page.js",
+      "source_location": "L1",
+      "id": "src_app_dashboard_invoices_id_page_js",
+      "community": 26,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "InvoicePage()",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/invoices/[id]/page.js",
+      "source_location": "L1",
+      "id": "id_page_invoicepage",
+      "community": 26,
+      "norm_label": "invoicepage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/invoices/[id]/edit/page.js",
+      "source_location": "L1",
+      "id": "src_app_dashboard_invoices_id_edit_page_js",
+      "community": 27,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "EditInvoicePage()",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/invoices/[id]/edit/page.js",
+      "source_location": "L1",
+      "id": "edit_page_editinvoicepage",
+      "community": 27,
+      "norm_label": "editinvoicepage()"
+    },
+    {
+      "label": "page.js",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/settings/page.js",
+      "source_location": "L1",
+      "id": "src_app_dashboard_settings_page_js",
+      "community": 28,
+      "norm_label": "page.js"
+    },
+    {
+      "label": "SettingsPage()",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/settings/page.js",
+      "source_location": "L6",
+      "id": "settings_page_settingspage",
+      "community": 28,
+      "norm_label": "settingspage()"
+    },
+    {
+      "label": "auth.js",
+      "file_type": "code",
+      "source_file": "src/app/actions/auth.js",
+      "source_location": "L1",
+      "id": "src_app_actions_auth_js",
+      "community": 29,
+      "norm_label": "auth.js"
+    },
+    {
+      "label": "signOut()",
+      "file_type": "code",
+      "source_file": "src/app/actions/auth.js",
+      "source_location": "L6",
+      "id": "actions_auth_signout",
+      "community": 29,
+      "norm_label": "signout()"
+    },
+    {
+      "label": "settings.js",
+      "file_type": "code",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L1",
+      "id": "src_app_actions_settings_js",
+      "community": 2,
+      "norm_label": "settings.js"
+    },
+    {
+      "label": "createBillingProfile()",
+      "file_type": "code",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L8",
+      "id": "actions_settings_createbillingprofile",
+      "community": 2,
+      "norm_label": "createbillingprofile()"
+    },
+    {
+      "label": "updateBillingProfile()",
+      "file_type": "code",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L32",
+      "id": "actions_settings_updatebillingprofile",
+      "community": 2,
+      "norm_label": "updatebillingprofile()"
+    },
+    {
+      "label": "createDriver()",
+      "file_type": "code",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L62",
+      "id": "actions_settings_createdriver",
+      "community": 2,
+      "norm_label": "createdriver()"
+    },
+    {
+      "label": "updateDriver()",
+      "file_type": "code",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L77",
+      "id": "actions_settings_updatedriver",
+      "community": 2,
+      "norm_label": "updatedriver()"
+    },
+    {
+      "label": "toggleDriverActive()",
+      "file_type": "code",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L96",
+      "id": "actions_settings_toggledriveractive",
+      "community": 2,
+      "norm_label": "toggledriveractive()"
+    },
+    {
+      "label": "createTruck()",
+      "file_type": "code",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L112",
+      "id": "actions_settings_createtruck",
+      "community": 2,
+      "norm_label": "createtruck()"
+    },
+    {
+      "label": "updateTruck()",
+      "file_type": "code",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L126",
+      "id": "actions_settings_updatetruck",
+      "community": 2,
+      "norm_label": "updatetruck()"
+    },
+    {
+      "label": "toggleTruckActive()",
+      "file_type": "code",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L144",
+      "id": "actions_settings_toggletruckactive",
+      "community": 2,
+      "norm_label": "toggletruckactive()"
+    },
+    {
+      "label": "createRateRule()",
+      "file_type": "code",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L160",
+      "id": "actions_settings_createraterule",
+      "community": 2,
+      "norm_label": "createraterule()"
+    },
+    {
+      "label": "updateRateRule()",
+      "file_type": "code",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L177",
+      "id": "actions_settings_updateraterule",
+      "community": 2,
+      "norm_label": "updateraterule()"
+    },
+    {
+      "label": "toggleRateRuleActive()",
+      "file_type": "code",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L198",
+      "id": "actions_settings_togglerateruleactive",
+      "community": 2,
+      "norm_label": "togglerateruleactive()"
+    },
+    {
+      "label": "Sidebar.js",
+      "file_type": "code",
+      "source_file": "src/components/Sidebar.js",
+      "source_location": "L1",
+      "id": "src_components_sidebar_js",
+      "community": 9,
+      "norm_label": "sidebar.js"
+    },
+    {
+      "label": "Sidebar()",
+      "file_type": "code",
+      "source_file": "src/components/Sidebar.js",
+      "source_location": "L11",
+      "id": "components_sidebar_sidebar",
+      "community": 9,
+      "norm_label": "sidebar()"
+    },
+    {
+      "label": "TopBar.js",
+      "file_type": "code",
+      "source_file": "src/components/TopBar.js",
+      "source_location": "L1",
+      "id": "src_components_topbar_js",
+      "community": 30,
+      "norm_label": "topbar.js"
+    },
+    {
+      "label": "TopBar()",
+      "file_type": "code",
+      "source_file": "src/components/TopBar.js",
+      "source_location": "L6",
+      "id": "components_topbar_topbar",
+      "community": 30,
+      "norm_label": "topbar()"
+    },
+    {
+      "label": "BillingProfileModal.js",
+      "file_type": "code",
+      "source_file": "src/components/settings/BillingProfileModal.js",
+      "source_location": "L1",
+      "id": "src_components_settings_billingprofilemodal_js",
+      "community": 10,
+      "norm_label": "billingprofilemodal.js"
+    },
+    {
+      "label": "blank()",
+      "file_type": "code",
+      "source_file": "src/components/settings/BillingProfileModal.js",
+      "source_location": "L23",
+      "id": "settings_billingprofilemodal_blank",
+      "community": 10,
+      "norm_label": "blank()"
+    },
+    {
+      "label": "BillingProfileModal()",
+      "file_type": "code",
+      "source_file": "src/components/settings/BillingProfileModal.js",
+      "source_location": "L43",
+      "id": "settings_billingprofilemodal_billingprofilemodal",
+      "community": 10,
+      "norm_label": "billingprofilemodal()"
+    },
+    {
+      "label": "BillingProfilesTab.js",
+      "file_type": "code",
+      "source_file": "src/components/settings/BillingProfilesTab.js",
+      "source_location": "L1",
+      "id": "src_components_settings_billingprofilestab_js",
+      "community": 31,
+      "norm_label": "billingprofilestab.js"
+    },
+    {
+      "label": "BillingProfilesTab()",
+      "file_type": "code",
+      "source_file": "src/components/settings/BillingProfilesTab.js",
+      "source_location": "L10",
+      "id": "settings_billingprofilestab_billingprofilestab",
+      "community": 31,
+      "norm_label": "billingprofilestab()"
+    },
+    {
+      "label": "DriverModal.js",
+      "file_type": "code",
+      "source_file": "src/components/settings/DriverModal.js",
+      "source_location": "L1",
+      "id": "src_components_settings_drivermodal_js",
+      "community": 11,
+      "norm_label": "drivermodal.js"
+    },
+    {
+      "label": "blank()",
+      "file_type": "code",
+      "source_file": "src/components/settings/DriverModal.js",
+      "source_location": "L17",
+      "id": "settings_drivermodal_blank",
+      "community": 11,
+      "norm_label": "blank()"
+    },
+    {
+      "label": "DriverModal()",
+      "file_type": "code",
+      "source_file": "src/components/settings/DriverModal.js",
+      "source_location": "L26",
+      "id": "settings_drivermodal_drivermodal",
+      "community": 11,
+      "norm_label": "drivermodal()"
+    },
+    {
+      "label": "DriversTab.js",
+      "file_type": "code",
+      "source_file": "src/components/settings/DriversTab.js",
+      "source_location": "L1",
+      "id": "src_components_settings_driverstab_js",
+      "community": 12,
+      "norm_label": "driverstab.js"
+    },
+    {
+      "label": "initials()",
+      "file_type": "code",
+      "source_file": "src/components/settings/DriversTab.js",
+      "source_location": "L13",
+      "id": "settings_driverstab_initials",
+      "community": 12,
+      "norm_label": "initials()"
+    },
+    {
+      "label": "DriversTab()",
+      "file_type": "code",
+      "source_file": "src/components/settings/DriversTab.js",
+      "source_location": "L17",
+      "id": "settings_driverstab_driverstab",
+      "community": 12,
+      "norm_label": "driverstab()"
+    },
+    {
+      "label": "RateRuleModal.js",
+      "file_type": "code",
+      "source_file": "src/components/settings/RateRuleModal.js",
+      "source_location": "L1",
+      "id": "src_components_settings_raterulemodal_js",
+      "community": 13,
+      "norm_label": "raterulemodal.js"
+    },
+    {
+      "label": "blank()",
+      "file_type": "code",
+      "source_file": "src/components/settings/RateRuleModal.js",
+      "source_location": "L23",
+      "id": "settings_raterulemodal_blank",
+      "community": 13,
+      "norm_label": "blank()"
+    },
+    {
+      "label": "RateRuleModal()",
+      "file_type": "code",
+      "source_file": "src/components/settings/RateRuleModal.js",
+      "source_location": "L33",
+      "id": "settings_raterulemodal_raterulemodal",
+      "community": 13,
+      "norm_label": "raterulemodal()"
+    },
+    {
+      "label": "RateRulesTab.js",
+      "file_type": "code",
+      "source_file": "src/components/settings/RateRulesTab.js",
+      "source_location": "L1",
+      "id": "src_components_settings_raterulestab_js",
+      "community": 32,
+      "norm_label": "raterulestab.js"
+    },
+    {
+      "label": "RateRulesTab()",
+      "file_type": "code",
+      "source_file": "src/components/settings/RateRulesTab.js",
+      "source_location": "L14",
+      "id": "settings_raterulestab_raterulestab",
+      "community": 32,
+      "norm_label": "raterulestab()"
+    },
+    {
+      "label": "SettingsTabs.js",
+      "file_type": "code",
+      "source_file": "src/components/settings/SettingsTabs.js",
+      "source_location": "L1",
+      "id": "src_components_settings_settingstabs_js",
+      "community": 14,
+      "norm_label": "settingstabs.js"
+    },
+    {
+      "label": "tabButtonStyle()",
+      "file_type": "code",
+      "source_file": "src/components/settings/SettingsTabs.js",
+      "source_location": "L16",
+      "id": "settings_settingstabs_tabbuttonstyle",
+      "community": 14,
+      "norm_label": "tabbuttonstyle()"
+    },
+    {
+      "label": "SettingsTabs()",
+      "file_type": "code",
+      "source_file": "src/components/settings/SettingsTabs.js",
+      "source_location": "L31",
+      "id": "settings_settingstabs_settingstabs",
+      "community": 14,
+      "norm_label": "settingstabs()"
+    },
+    {
+      "label": "TruckModal.js",
+      "file_type": "code",
+      "source_file": "src/components/settings/TruckModal.js",
+      "source_location": "L1",
+      "id": "src_components_settings_truckmodal_js",
+      "community": 15,
+      "norm_label": "truckmodal.js"
+    },
+    {
+      "label": "blank()",
+      "file_type": "code",
+      "source_file": "src/components/settings/TruckModal.js",
+      "source_location": "L17",
+      "id": "settings_truckmodal_blank",
+      "community": 15,
+      "norm_label": "blank()"
+    },
+    {
+      "label": "TruckModal()",
+      "file_type": "code",
+      "source_file": "src/components/settings/TruckModal.js",
+      "source_location": "L25",
+      "id": "settings_truckmodal_truckmodal",
+      "community": 15,
+      "norm_label": "truckmodal()"
+    },
+    {
+      "label": "TrucksTab.js",
+      "file_type": "code",
+      "source_file": "src/components/settings/TrucksTab.js",
+      "source_location": "L1",
+      "id": "src_components_settings_truckstab_js",
+      "community": 33,
+      "norm_label": "truckstab.js"
+    },
+    {
+      "label": "TrucksTab()",
+      "file_type": "code",
+      "source_file": "src/components/settings/TrucksTab.js",
+      "source_location": "L13",
+      "id": "settings_truckstab_truckstab",
+      "community": 33,
+      "norm_label": "truckstab()"
+    },
+    {
+      "label": "Badge.js",
+      "file_type": "code",
+      "source_file": "src/components/ui/Badge.js",
+      "source_location": "L1",
+      "id": "src_components_ui_badge_js",
+      "community": 34,
+      "norm_label": "badge.js"
+    },
+    {
+      "label": "Badge()",
+      "file_type": "code",
+      "source_file": "src/components/ui/Badge.js",
+      "source_location": "L8",
+      "id": "ui_badge_badge",
+      "community": 34,
+      "norm_label": "badge()"
+    },
+    {
+      "label": "Button.js",
+      "file_type": "code",
+      "source_file": "src/components/ui/Button.js",
+      "source_location": "L1",
+      "id": "src_components_ui_button_js",
+      "community": 35,
+      "norm_label": "button.js"
+    },
+    {
+      "label": "Button()",
+      "file_type": "code",
+      "source_file": "src/components/ui/Button.js",
+      "source_location": "L17",
+      "id": "ui_button_button",
+      "community": 35,
+      "norm_label": "button()"
+    },
+    {
+      "label": "Card.js",
+      "file_type": "code",
+      "source_file": "src/components/ui/Card.js",
+      "source_location": "L1",
+      "id": "src_components_ui_card_js",
+      "community": 36,
+      "norm_label": "card.js"
+    },
+    {
+      "label": "Card()",
+      "file_type": "code",
+      "source_file": "src/components/ui/Card.js",
+      "source_location": "L3",
+      "id": "ui_card_card",
+      "community": 36,
+      "norm_label": "card()"
+    },
+    {
+      "label": "DataTable.js",
+      "file_type": "code",
+      "source_file": "src/components/ui/DataTable.js",
+      "source_location": "L1",
+      "id": "src_components_ui_datatable_js",
+      "community": 37,
+      "norm_label": "datatable.js"
+    },
+    {
+      "label": "DataTable()",
+      "file_type": "code",
+      "source_file": "src/components/ui/DataTable.js",
+      "source_location": "L3",
+      "id": "ui_datatable_datatable",
+      "community": 37,
+      "norm_label": "datatable()"
+    },
+    {
+      "label": "EmptyState.js",
+      "file_type": "code",
+      "source_file": "src/components/ui/EmptyState.js",
+      "source_location": "L1",
+      "id": "src_components_ui_emptystate_js",
+      "community": 38,
+      "norm_label": "emptystate.js"
+    },
+    {
+      "label": "EmptyState()",
+      "file_type": "code",
+      "source_file": "src/components/ui/EmptyState.js",
+      "source_location": "L1",
+      "id": "ui_emptystate_emptystate",
+      "community": 38,
+      "norm_label": "emptystate()"
+    },
+    {
+      "label": "FormField.js",
+      "file_type": "code",
+      "source_file": "src/components/ui/FormField.js",
+      "source_location": "L1",
+      "id": "src_components_ui_formfield_js",
+      "community": 39,
+      "norm_label": "formfield.js"
+    },
+    {
+      "label": "FormField()",
+      "file_type": "code",
+      "source_file": "src/components/ui/FormField.js",
+      "source_location": "L1",
+      "id": "ui_formfield_formfield",
+      "community": 39,
+      "norm_label": "formfield()"
+    },
+    {
+      "label": "Modal.js",
+      "file_type": "code",
+      "source_file": "src/components/ui/Modal.js",
+      "source_location": "L1",
+      "id": "src_components_ui_modal_js",
+      "community": 40,
+      "norm_label": "modal.js"
+    },
+    {
+      "label": "Modal()",
+      "file_type": "code",
+      "source_file": "src/components/ui/Modal.js",
+      "source_location": "L8",
+      "id": "ui_modal_modal",
+      "community": 40,
+      "norm_label": "modal()"
+    },
+    {
+      "label": "PageHeader.js",
+      "file_type": "code",
+      "source_file": "src/components/ui/PageHeader.js",
+      "source_location": "L1",
+      "id": "src_components_ui_pageheader_js",
+      "community": 41,
+      "norm_label": "pageheader.js"
+    },
+    {
+      "label": "PageHeader()",
+      "file_type": "code",
+      "source_file": "src/components/ui/PageHeader.js",
+      "source_location": "L1",
+      "id": "ui_pageheader_pageheader",
+      "community": 41,
+      "norm_label": "pageheader()"
+    },
+    {
+      "label": "Toast.js",
+      "file_type": "code",
+      "source_file": "src/components/ui/Toast.js",
+      "source_location": "L1",
+      "id": "src_components_ui_toast_js",
+      "community": 42,
+      "norm_label": "toast.js"
+    },
+    {
+      "label": "Toast()",
+      "file_type": "code",
+      "source_file": "src/components/ui/Toast.js",
+      "source_location": "L11",
+      "id": "ui_toast_toast",
+      "community": 42,
+      "norm_label": "toast()"
+    },
+    {
+      "label": "ToggleSwitch.js",
+      "file_type": "code",
+      "source_file": "src/components/ui/ToggleSwitch.js",
+      "source_location": "L1",
+      "id": "src_components_ui_toggleswitch_js",
+      "community": 43,
+      "norm_label": "toggleswitch.js"
+    },
+    {
+      "label": "ToggleSwitch()",
+      "file_type": "code",
+      "source_file": "src/components/ui/ToggleSwitch.js",
+      "source_location": "L3",
+      "id": "ui_toggleswitch_toggleswitch",
+      "community": 43,
+      "norm_label": "toggleswitch()"
+    },
+    {
+      "label": "anthropic.js",
+      "file_type": "code",
+      "source_file": "src/lib/anthropic.js",
+      "source_location": "L1",
+      "id": "src_lib_anthropic_js",
+      "community": 48,
+      "norm_label": "anthropic.js"
+    },
+    {
+      "label": "client.js",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/client.js",
+      "source_location": "L1",
+      "id": "src_lib_supabase_client_js",
+      "community": 44,
+      "norm_label": "client.js"
+    },
+    {
+      "label": "createClient()",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/client.js",
+      "source_location": "L3",
+      "id": "supabase_client_createclient",
+      "community": 44,
+      "norm_label": "createclient()"
+    },
+    {
+      "label": "middleware.js",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/middleware.js",
+      "source_location": "L1",
+      "id": "src_lib_supabase_middleware_js",
+      "community": 6,
+      "norm_label": "middleware.js"
+    },
+    {
+      "label": "updateSession()",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/middleware.js",
+      "source_location": "L4",
+      "id": "supabase_middleware_updatesession",
+      "community": 6,
+      "norm_label": "updatesession()"
+    },
+    {
+      "label": "server.js",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/server.js",
+      "source_location": "L1",
+      "id": "src_lib_supabase_server_js",
+      "community": 45,
+      "norm_label": "server.js"
+    },
+    {
+      "label": "createClient()",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/server.js",
+      "source_location": "L4",
+      "id": "supabase_server_createclient",
+      "community": 45,
+      "norm_label": "createclient()"
+    },
+    {
+      "label": "invoiceMath.js",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L1",
+      "id": "src_utils_invoicemath_js",
+      "community": 5,
+      "norm_label": "invoicemath.js"
+    },
+    {
+      "label": "isInvalidNumber()",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L1",
+      "id": "utils_invoicemath_isinvalidnumber",
+      "community": 5,
+      "norm_label": "isinvalidnumber()"
+    },
+    {
+      "label": "calculateTripAmount()",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L5",
+      "id": "utils_invoicemath_calculatetripamount",
+      "community": 5,
+      "norm_label": "calculatetripamount()"
+    },
+    {
+      "label": "calculateSubtotal()",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L10",
+      "id": "utils_invoicemath_calculatesubtotal",
+      "community": 5,
+      "norm_label": "calculatesubtotal()"
+    },
+    {
+      "label": "calculateGST()",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L16",
+      "id": "utils_invoicemath_calculategst",
+      "community": 5,
+      "norm_label": "calculategst()"
+    },
+    {
+      "label": "calculateTotal()",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L20",
+      "id": "utils_invoicemath_calculatetotal",
+      "community": 5,
+      "norm_label": "calculatetotal()"
+    },
+    {
+      "label": "calculateBillingPeriod()",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L24",
+      "id": "utils_invoicemath_calculatebillingperiod",
+      "community": 5,
+      "norm_label": "calculatebillingperiod()"
+    },
+    {
+      "label": "generateNextInvoiceNumber()",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L47",
+      "id": "utils_invoicemath_generatenextinvoicenumber",
+      "community": 5,
+      "norm_label": "generatenextinvoicenumber()"
+    },
+    {
+      "label": "formatCAD()",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L57",
+      "id": "utils_invoicemath_formatcad",
+      "community": 5,
+      "norm_label": "formatcad()"
+    },
+    {
+      "label": "mileageEstimator.js",
+      "file_type": "code",
+      "source_file": "src/utils/mileageEstimator.js",
+      "source_location": "L1",
+      "id": "src_utils_mileageestimator_js",
+      "community": 16,
+      "norm_label": "mileageestimator.js"
+    },
+    {
+      "label": "estimateMileage()",
+      "file_type": "code",
+      "source_file": "src/utils/mileageEstimator.js",
+      "source_location": "L3",
+      "id": "utils_mileageestimator_estimatemileage",
+      "community": 16,
+      "norm_label": "estimatemileage()"
+    },
+    {
+      "label": "pdfTemplate.js",
+      "file_type": "code",
+      "source_file": "src/utils/pdfTemplate.js",
+      "source_location": "L1",
+      "id": "src_utils_pdftemplate_js",
+      "community": 46,
+      "norm_label": "pdftemplate.js"
+    },
+    {
+      "label": "generateInvoicePDF()",
+      "file_type": "code",
+      "source_file": "src/utils/pdfTemplate.js",
+      "source_location": "L1",
+      "id": "utils_pdftemplate_generateinvoicepdf",
+      "community": 46,
+      "norm_label": "generateinvoicepdf()"
+    },
+    {
+      "label": "invoiceMath.test.js",
+      "file_type": "code",
+      "source_file": "src/utils/__tests__/invoiceMath.test.js",
+      "source_location": "L1",
+      "id": "src_utils_tests_invoicemath_test_js",
+      "community": 5,
+      "norm_label": "invoicemath.test.js"
+    },
+    {
+      "label": "calculateLineTotal()",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "calculatelinetotal()",
+      "id": "utils_invoicemath_calculatelinetotal"
+    },
+    {
+      "label": "nextConfig",
+      "file_type": "code",
+      "source_file": "next.config.mjs",
+      "source_location": "L2",
+      "community": 47,
+      "norm_label": "nextconfig",
+      "id": "route90_invoicer_next_config_nextconfig"
+    },
+    {
+      "label": "config",
+      "file_type": "code",
+      "source_file": "postcss.config.mjs",
+      "source_location": "L2",
+      "community": 18,
+      "norm_label": "config",
+      "id": "route90_invoicer_postcss_config_config"
+    },
+    {
+      "label": "config",
+      "file_type": "code",
+      "source_file": "src/middleware.js",
+      "source_location": "L7",
+      "community": 6,
+      "norm_label": "config",
+      "id": "src_middleware_config"
+    },
+    {
+      "label": "metadata",
+      "file_type": "code",
+      "source_file": "src/app/layout.js",
+      "source_location": "L3",
+      "community": 8,
+      "norm_label": "metadata",
+      "id": "app_layout_metadata"
+    },
+    {
+      "label": "mainNav",
+      "file_type": "code",
+      "source_file": "src/components/Sidebar.js",
+      "source_location": "L5",
+      "community": 9,
+      "norm_label": "mainnav",
+      "id": "components_sidebar_mainnav"
+    },
+    {
+      "label": "anthropic",
+      "file_type": "code",
+      "source_file": "src/lib/anthropic.js",
+      "source_location": "L3",
+      "community": 48,
+      "norm_label": "anthropic",
+      "id": "lib_anthropic_anthropic"
+    },
+    {
+      "label": "MILEAGE_TABLE",
+      "file_type": "code",
+      "source_file": "src/utils/mileageEstimator.js",
+      "source_location": "L1",
+      "community": 16,
+      "norm_label": "mileage_table",
+      "id": "utils_mileageestimator_mileage_table"
+    },
+    {
+      "label": "Next.js Config",
+      "file_type": "code",
+      "source_file": "next.config.mjs",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 54,
+      "norm_label": "next.js config",
+      "id": "next_config"
+    },
+    {
+      "label": "PostCSS Config",
+      "file_type": "code",
+      "source_file": "postcss.config.mjs",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "postcss config",
+      "id": "postcss_config"
+    },
+    {
+      "label": "Tailwind Config",
+      "file_type": "code",
+      "source_file": "tailwind.config.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "tailwind config",
+      "id": "tailwind_config"
+    },
+    {
+      "label": "Next.js Middleware (Auth Guard)",
+      "file_type": "code",
+      "source_file": "src/middleware.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "next.js middleware (auth guard)",
+      "id": "middleware"
+    },
+    {
+      "label": "Supabase Middleware updateSession",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/middleware.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "supabase middleware updatesession",
+      "id": "supabase_middleware"
+    },
+    {
+      "label": "Root App Layout",
+      "file_type": "code",
+      "source_file": "src/app/layout.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "root app layout",
+      "id": "app_layout"
+    },
+    {
+      "label": "Homepage (Next.js scaffold)",
+      "file_type": "code",
+      "source_file": "src/app/page.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 55,
+      "norm_label": "homepage (next.js scaffold)",
+      "id": "app_homepage"
+    },
+    {
+      "label": "Login Page",
+      "file_type": "code",
+      "source_file": "src/app/(auth)/login/page.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "login page",
+      "id": "auth_login_page"
+    },
+    {
+      "label": "Signup Page (stub)",
+      "file_type": "code",
+      "source_file": "src/app/(auth)/signup/page.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "signup page (stub)",
+      "id": "auth_signup_page"
+    },
+    {
+      "label": "Supabase Browser Client",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/client.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "supabase browser client",
+      "id": "supabase_client"
+    },
+    {
+      "label": "Supabase Server Client",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/server.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "supabase server client",
+      "id": "supabase_server"
+    },
+    {
+      "label": "Dashboard Layout (Server Guard)",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "dashboard layout (server guard)",
+      "id": "dashboard_layout"
+    },
+    {
+      "label": "Sidebar Component",
+      "file_type": "code",
+      "source_file": "src/components/Sidebar.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "sidebar component",
+      "id": "sidebar_component"
+    },
+    {
+      "label": "TopBar Component",
+      "file_type": "code",
+      "source_file": "src/components/TopBar.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "topbar component",
+      "id": "topbar_component"
+    },
+    {
+      "label": "Dashboard Page (stub)",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/dashboard/page.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "dashboard page (stub)",
+      "id": "dashboard_page"
+    },
+    {
+      "label": "New Invoice Page (stub)",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/invoices/new/page.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "new invoice page (stub)",
+      "id": "invoices_new_page"
+    },
+    {
+      "label": "Scan Invoice Page (stub)",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/invoices/scan/page.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "scan invoice page (stub)",
+      "id": "invoices_scan_page"
+    },
+    {
+      "label": "Invoice Detail Page (stub)",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/invoices/[id]/page.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "invoice detail page (stub)",
+      "id": "invoice_detail_page"
+    },
+    {
+      "label": "Invoice Edit Page (stub)",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/invoices/[id]/edit/page.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "invoice edit page (stub)",
+      "id": "invoice_edit_page"
+    },
+    {
+      "label": "Settings Page (stub)",
+      "file_type": "code",
+      "source_file": "src/app/(dashboard)/settings/page.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "settings page (stub)",
+      "id": "settings_page"
+    },
+    {
+      "label": "Authentication Guard Pattern",
+      "file_type": "rationale",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "authentication guard pattern",
+      "id": "concept_auth_guard"
+    },
+    {
+      "label": "Next.js Route Groups (auth/dashboard)",
+      "file_type": "rationale",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "next.js route groups (auth/dashboard)",
+      "id": "concept_route_groups"
+    },
+    {
+      "label": "Supabase Session Management",
+      "file_type": "rationale",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "supabase session management",
+      "id": "concept_supabase_session"
+    },
+    {
+      "label": "Apple-Style Design System (Indigo #4F46E5, SF Pro)",
+      "file_type": "rationale",
+      "source_file": null,
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "apple-style design system (indigo #4f46e5, sf pro)",
+      "id": "concept_apple_design"
+    },
+    {
+      "label": "signOut Server Action",
+      "file_type": "code",
+      "source_file": "src/app/actions/auth.js",
+      "source_location": "line 6",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "signout server action",
+      "id": "auth_signout"
+    },
+    {
+      "label": "Anthropic Client Singleton",
+      "file_type": "code",
+      "source_file": "src/lib/anthropic.js",
+      "source_location": "line 3",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "anthropic client singleton",
+      "id": "anthropic_client"
+    },
+    {
+      "label": "Supabase Browser Client Factory",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/client.js",
+      "source_location": "line 3",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "supabase browser client factory",
+      "id": "supabase_browser_client"
+    },
+    {
+      "label": "Supabase Server Client Factory",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/server.js",
+      "source_location": "line 4",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "supabase server client factory",
+      "id": "supabase_server_client"
+    },
+    {
+      "label": "calculateLineTotal",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "line 1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 49,
+      "norm_label": "calculatelinetotal",
+      "id": "invoicemath_calculatelinetotal"
+    },
+    {
+      "label": "calculateSubtotal",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "line 5",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 49,
+      "norm_label": "calculatesubtotal",
+      "id": "invoicemath_calculatesubtotal"
+    },
+    {
+      "label": "calculateGST",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "line 9",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 17,
+      "norm_label": "calculategst",
+      "id": "invoicemath_calculategst"
+    },
+    {
+      "label": "calculateTotal",
+      "file_type": "code",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "line 13",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 17,
+      "norm_label": "calculatetotal",
+      "id": "invoicemath_calculatetotal"
+    },
+    {
+      "label": "estimateMileage",
+      "file_type": "code",
+      "source_file": "src/utils/mileageEstimator.js",
+      "source_location": "line 3",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 50,
+      "norm_label": "estimatemileage",
+      "id": "mileageestimator_estimatemileage"
+    },
+    {
+      "label": "MILEAGE_TABLE Lookup",
+      "file_type": "code",
+      "source_file": "src/utils/mileageEstimator.js",
+      "source_location": "line 1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 50,
+      "norm_label": "mileage_table lookup",
+      "id": "mileageestimator_mileage_table"
+    },
+    {
+      "label": "generateInvoicePDF (stub)",
+      "file_type": "code",
+      "source_file": "src/utils/pdfTemplate.js",
+      "source_location": "line 1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 51,
+      "norm_label": "generateinvoicepdf (stub)",
+      "id": "pdftemplate_generateinvoicepdf"
+    },
+    {
+      "label": "Invoice HTML Template",
+      "file_type": "document",
+      "source_file": "invoice-template.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 51,
+      "norm_label": "invoice html template",
+      "id": "invoice_template_html"
+    },
+    {
+      "label": "Auth System Implementation Plan",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-05-11-auth-system.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "auth system implementation plan",
+      "id": "auth_system_plan"
+    },
+    {
+      "label": "Route90 Invoicer Project Memory (CLAUDE.md)",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "route90 invoicer project memory (claude.md)",
+      "id": "claude_md_project"
+    },
+    {
+      "label": "Server Action Sign-Out Pattern",
+      "file_type": "rationale",
+      "source_file": "docs/superpowers/plans/2026-05-11-auth-system.md",
+      "source_location": "Task 3",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "server action sign-out pattern",
+      "id": "rationale_server_action_pattern"
+    },
+    {
+      "label": "Supabase SSR Client Split (browser vs server)",
+      "file_type": "rationale",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "supabase ssr client split (browser vs server)",
+      "id": "rationale_supabase_ssr_split"
+    },
+    {
+      "label": "Anthropic API Server-Only Rule",
+      "file_type": "rationale",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "anthropic api server-only rule",
+      "id": "rationale_anthropic_server_only"
+    },
+    {
+      "label": "GST Rate 5%",
+      "file_type": "rationale",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "line 9",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 17,
+      "norm_label": "gst rate 5%",
+      "id": "invoice_gst_rate"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "next.config.mjs",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "next_config_mjs",
+      "target": "route90_invoicer_next_config_nextconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "postcss.config.mjs",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "postcss_config_mjs",
+      "target": "route90_invoicer_postcss_config_config"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/block-navigation.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_block_navigation_js",
+      "target": "lcov_report_block_navigation_toggleclass"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/block-navigation.js",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_block_navigation_js",
+      "target": "lcov_report_block_navigation_makecurrent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/block-navigation.js",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_block_navigation_js",
+      "target": "lcov_report_block_navigation_gotoprevious"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/block-navigation.js",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_block_navigation_js",
+      "target": "lcov_report_block_navigation_gotonext"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/block-navigation.js",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_block_navigation_makecurrent",
+      "target": "lcov_report_block_navigation_toggleclass"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/block-navigation.js",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_block_navigation_gotoprevious",
+      "target": "lcov_report_block_navigation_makecurrent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/block-navigation.js",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_block_navigation_gotonext",
+      "target": "lcov_report_block_navigation_makecurrent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_prettify_js",
+      "target": "lcov_report_prettify_k"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_prettify_js",
+      "target": "lcov_report_prettify_a"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_prettify_js",
+      "target": "lcov_report_prettify_b"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_prettify_js",
+      "target": "lcov_report_prettify_o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_prettify_js",
+      "target": "lcov_report_prettify_g"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_prettify_js",
+      "target": "lcov_report_prettify_i"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_prettify_js",
+      "target": "lcov_report_prettify_q"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_prettify_js",
+      "target": "lcov_report_prettify_d"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_prettify_js",
+      "target": "lcov_report_prettify_c"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_prettify_js",
+      "target": "lcov_report_prettify_y"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_prettify_g",
+      "target": "lcov_report_prettify_k"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_prettify_d",
+      "target": "lcov_report_prettify_a"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_prettify_g",
+      "target": "lcov_report_prettify_b"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_prettify_b",
+      "target": "lcov_report_prettify_y"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_prettify_g",
+      "target": "lcov_report_prettify_q"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_prettify_i",
+      "target": "lcov_report_prettify_g"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_prettify_d",
+      "target": "lcov_report_prettify_q"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_prettify_y",
+      "target": "lcov_report_prettify_q"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/prettify.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_prettify_y",
+      "target": "lcov_report_prettify_d"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_sorter_js",
+      "target": "lcov_report_sorter_gettable"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_sorter_js",
+      "target": "lcov_report_sorter_gettableheader"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_sorter_js",
+      "target": "lcov_report_sorter_gettablebody"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_sorter_js",
+      "target": "lcov_report_sorter_getnthcolumn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_sorter_js",
+      "target": "lcov_report_sorter_onfilterinput"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_sorter_js",
+      "target": "lcov_report_sorter_addsearchbox"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_sorter_js",
+      "target": "lcov_report_sorter_loadcolumns"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_sorter_js",
+      "target": "lcov_report_sorter_loadrowdata"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_sorter_js",
+      "target": "lcov_report_sorter_loaddata"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L120",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_sorter_js",
+      "target": "lcov_report_sorter_sortbyindex"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_sorter_js",
+      "target": "lcov_report_sorter_removesortindicators"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L159",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_sorter_js",
+      "target": "lcov_report_sorter_addsortindicators"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L165",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "coverage_lcov_report_sorter_js",
+      "target": "lcov_report_sorter_enableui"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_sorter_gettableheader",
+      "target": "lcov_report_sorter_gettable"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_sorter_gettablebody",
+      "target": "lcov_report_sorter_gettable"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_sorter_getnthcolumn",
+      "target": "lcov_report_sorter_gettableheader"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_sorter_loadcolumns",
+      "target": "lcov_report_sorter_gettableheader"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_sorter_loaddata",
+      "target": "lcov_report_sorter_gettablebody"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L152",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_sorter_removesortindicators",
+      "target": "lcov_report_sorter_getnthcolumn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L160",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_sorter_addsortindicators",
+      "target": "lcov_report_sorter_getnthcolumn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L188",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_sorter_enableui",
+      "target": "lcov_report_sorter_getnthcolumn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L116",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_sorter_loaddata",
+      "target": "lcov_report_sorter_loadrowdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L177",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_sorter_enableui",
+      "target": "lcov_report_sorter_sortbyindex"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L178",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_sorter_enableui",
+      "target": "lcov_report_sorter_removesortindicators"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "coverage/lcov-report/sorter.js",
+      "source_location": "L181",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lcov_report_sorter_enableui",
+      "target": "lcov_report_sorter_addsortindicators"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/middleware.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_middleware_js",
+      "target": "middleware"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/middleware.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_middleware_js",
+      "target": "src_middleware_middleware"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/middleware.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_middleware_js",
+      "target": "src_middleware_config"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/middleware.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_middleware_middleware",
+      "target": "supabase_middleware_updatesession"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/layout.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_layout_js",
+      "target": "app_layout_rootlayout"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/layout.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_layout_js",
+      "target": "app_layout_metadata"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/page.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_page_js",
+      "target": "app_page_home"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(auth)/login/page.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_auth_login_page_js",
+      "target": "login_page_loginpage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(auth)/signup/page.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_auth_signup_page_js",
+      "target": "signup_page_signuppage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_dashboard_layout_js",
+      "target": "dashboard_layout_dashboardlayout"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(dashboard)/dashboard/page.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_dashboard_dashboard_page_js",
+      "target": "dashboard_page_dashboardpage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(dashboard)/invoices/new/page.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_dashboard_invoices_new_page_js",
+      "target": "new_page_newinvoicepage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(dashboard)/invoices/scan/page.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_dashboard_invoices_scan_page_js",
+      "target": "scan_page_scaninvoicepage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(dashboard)/invoices/[id]/page.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_dashboard_invoices_id_page_js",
+      "target": "id_page_invoicepage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(dashboard)/invoices/[id]/edit/page.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_dashboard_invoices_id_edit_page_js",
+      "target": "edit_page_editinvoicepage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(dashboard)/settings/page.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_dashboard_settings_page_js",
+      "target": "settings_page_settingspage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/auth.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_actions_auth_js",
+      "target": "actions_auth_signout"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_app_actions_settings_js",
+      "target": "actions_settings_createbillingprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "src_app_actions_settings_js",
+      "target": "actions_settings_updatebillingprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "src_app_actions_settings_js",
+      "target": "actions_settings_createdriver",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "src_app_actions_settings_js",
+      "target": "actions_settings_updatedriver",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "src_app_actions_settings_js",
+      "target": "actions_settings_toggledriveractive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "src_app_actions_settings_js",
+      "target": "actions_settings_createtruck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "src_app_actions_settings_js",
+      "target": "actions_settings_updatetruck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "src_app_actions_settings_js",
+      "target": "actions_settings_toggletruckactive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L160",
+      "weight": 1.0,
+      "source": "src_app_actions_settings_js",
+      "target": "actions_settings_createraterule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "src_app_actions_settings_js",
+      "target": "actions_settings_updateraterule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/settings.js",
+      "source_location": "L198",
+      "weight": 1.0,
+      "source": "src_app_actions_settings_js",
+      "target": "actions_settings_togglerateruleactive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Sidebar.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_sidebar_js",
+      "target": "components_sidebar_sidebar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Sidebar.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_sidebar_js",
+      "target": "components_sidebar_mainnav"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TopBar.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_topbar_js",
+      "target": "components_topbar_topbar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/BillingProfileModal.js",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_components_settings_billingprofilemodal_js",
+      "target": "settings_billingprofilemodal_blank",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/BillingProfileModal.js",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "src_components_settings_billingprofilemodal_js",
+      "target": "settings_billingprofilemodal_billingprofilemodal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/BillingProfilesTab.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_components_settings_billingprofilestab_js",
+      "target": "settings_billingprofilestab_billingprofilestab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/DriverModal.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "src_components_settings_drivermodal_js",
+      "target": "settings_drivermodal_blank",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/DriverModal.js",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_components_settings_drivermodal_js",
+      "target": "settings_drivermodal_drivermodal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/DriverModal.js",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "settings_drivermodal_drivermodal",
+      "target": "settings_drivermodal_blank",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/DriversTab.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_components_settings_driverstab_js",
+      "target": "settings_driverstab_initials",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/DriversTab.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "src_components_settings_driverstab_js",
+      "target": "settings_driverstab_driverstab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/RateRuleModal.js",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_components_settings_raterulemodal_js",
+      "target": "settings_raterulemodal_blank",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/RateRuleModal.js",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "src_components_settings_raterulemodal_js",
+      "target": "settings_raterulemodal_raterulemodal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/RateRulesTab.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_components_settings_raterulestab_js",
+      "target": "settings_raterulestab_raterulestab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/SettingsTabs.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_components_settings_settingstabs_js",
+      "target": "settings_settingstabs_tabbuttonstyle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/SettingsTabs.js",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "src_components_settings_settingstabs_js",
+      "target": "settings_settingstabs_settingstabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/TruckModal.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "src_components_settings_truckmodal_js",
+      "target": "settings_truckmodal_blank",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/TruckModal.js",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "src_components_settings_truckmodal_js",
+      "target": "settings_truckmodal_truckmodal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/TruckModal.js",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "settings_truckmodal_truckmodal",
+      "target": "settings_truckmodal_blank",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/settings/TrucksTab.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_components_settings_truckstab_js",
+      "target": "settings_truckstab_truckstab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Badge.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_ui_badge_js",
+      "target": "ui_badge_badge"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Button.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_ui_button_js",
+      "target": "ui_button_button"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Card.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_ui_card_js",
+      "target": "ui_card_card"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/DataTable.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_ui_datatable_js",
+      "target": "ui_datatable_datatable"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/EmptyState.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_ui_emptystate_js",
+      "target": "ui_emptystate_emptystate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/FormField.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_ui_formfield_js",
+      "target": "ui_formfield_formfield"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Modal.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_ui_modal_js",
+      "target": "ui_modal_modal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/PageHeader.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_ui_pageheader_js",
+      "target": "ui_pageheader_pageheader"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Toast.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_ui_toast_js",
+      "target": "ui_toast_toast"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/ToggleSwitch.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_components_ui_toggleswitch_js",
+      "target": "ui_toggleswitch_toggleswitch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/anthropic.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_lib_anthropic_js",
+      "target": "lib_anthropic_anthropic"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase/client.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_lib_supabase_client_js",
+      "target": "supabase_client_createclient"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase/middleware.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_lib_supabase_middleware_js",
+      "target": "supabase_middleware_updatesession"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase/server.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_lib_supabase_server_js",
+      "target": "supabase_server_createclient"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_invoicemath_js",
+      "target": "utils_invoicemath_isinvalidnumber"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_invoicemath_js",
+      "target": "utils_invoicemath_calculatetripamount"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_invoicemath_js",
+      "target": "utils_invoicemath_calculatesubtotal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_invoicemath_js",
+      "target": "utils_invoicemath_calculategst"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_invoicemath_js",
+      "target": "utils_invoicemath_calculatetotal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_invoicemath_js",
+      "target": "utils_invoicemath_calculatebillingperiod"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_invoicemath_js",
+      "target": "utils_invoicemath_generatenextinvoicenumber"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_invoicemath_js",
+      "target": "utils_invoicemath_formatcad"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_invoicemath_js",
+      "target": "utils_invoicemath_calculatelinetotal"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "utils_invoicemath_calculatetripamount",
+      "target": "utils_invoicemath_isinvalidnumber"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/__tests__/invoiceMath.test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_tests_invoicemath_test_js",
+      "target": "utils_invoicemath_calculatetripamount"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/__tests__/invoiceMath.test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_tests_invoicemath_test_js",
+      "target": "utils_invoicemath_calculatesubtotal"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/__tests__/invoiceMath.test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_tests_invoicemath_test_js",
+      "target": "utils_invoicemath_calculategst"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/__tests__/invoiceMath.test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_tests_invoicemath_test_js",
+      "target": "utils_invoicemath_calculatetotal"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/__tests__/invoiceMath.test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_tests_invoicemath_test_js",
+      "target": "utils_invoicemath_calculatebillingperiod"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/__tests__/invoiceMath.test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_tests_invoicemath_test_js",
+      "target": "utils_invoicemath_generatenextinvoicenumber"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/__tests__/invoiceMath.test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_tests_invoicemath_test_js",
+      "target": "utils_invoicemath_formatcad"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/mileageEstimator.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_mileageestimator_js",
+      "target": "utils_mileageestimator_estimatemileage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/mileageEstimator.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_mileageestimator_js",
+      "target": "utils_mileageestimator_mileage_table"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/pdfTemplate.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_pdftemplate_js",
+      "target": "utils_pdftemplate_generateinvoicepdf"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "postcss.config.mjs",
+      "source_location": "line 4",
+      "weight": 1.0,
+      "source": "postcss_config",
+      "target": "tailwind_config"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "tailwind.config.js",
+      "source_location": null,
+      "weight": 0.6,
+      "source": "tailwind_config",
+      "target": "concept_apple_design"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/middleware.js",
+      "source_location": "line 1-5",
+      "weight": 1.0,
+      "source": "middleware",
+      "target": "supabase_middleware"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/middleware.js",
+      "source_location": "line 3-5",
+      "weight": 1.0,
+      "source": "middleware",
+      "target": "concept_auth_guard"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/middleware.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "supabase_middleware",
+      "target": "concept_supabase_session"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/supabase/middleware.js",
+      "source_location": "line 7",
+      "weight": 1.0,
+      "source": "supabase_middleware",
+      "target": "supabase_server_client"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-05-11-auth-system.md",
+      "source_location": "What Already Exists",
+      "weight": 1.0,
+      "source": "auth_system_plan",
+      "target": "supabase_middleware"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "src/lib/supabase/middleware.js",
+      "source_location": null,
+      "weight": 0.5,
+      "source": "supabase_middleware",
+      "target": "supabase_browser_client"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/app/layout.js",
+      "source_location": null,
+      "weight": 0.8,
+      "source": "app_layout",
+      "target": "concept_route_groups"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(auth)/login/page.js",
+      "source_location": "line 5",
+      "weight": 1.0,
+      "source": "auth_login_page",
+      "target": "supabase_client"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(auth)/login/page.js",
+      "source_location": "inline styles",
+      "weight": 1.0,
+      "source": "auth_login_page",
+      "target": "concept_apple_design"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(auth)/login/page.js",
+      "source_location": "line 20-28",
+      "weight": 1.0,
+      "source": "auth_login_page",
+      "target": "concept_supabase_session"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/app/(auth)/login/page.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_login_page",
+      "target": "concept_route_groups"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": null,
+      "source_location": null,
+      "weight": 0.7,
+      "source": "auth_login_page",
+      "target": "auth_signup_page"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "line 2",
+      "weight": 1.0,
+      "source": "dashboard_layout",
+      "target": "supabase_server"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "line 3",
+      "weight": 1.0,
+      "source": "dashboard_layout",
+      "target": "sidebar_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "line 4",
+      "weight": 1.0,
+      "source": "dashboard_layout",
+      "target": "topbar_component"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "line 8-12",
+      "weight": 1.0,
+      "source": "dashboard_layout",
+      "target": "concept_auth_guard"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "line 7-8",
+      "weight": 1.0,
+      "source": "dashboard_layout",
+      "target": "concept_supabase_session"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "dashboard_layout",
+      "target": "concept_route_groups"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "children prop",
+      "weight": 0.9,
+      "source": "dashboard_layout",
+      "target": "dashboard_page"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "children prop",
+      "weight": 0.9,
+      "source": "dashboard_layout",
+      "target": "invoices_new_page"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "children prop",
+      "weight": 0.9,
+      "source": "dashboard_layout",
+      "target": "invoices_scan_page"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "children prop",
+      "weight": 0.9,
+      "source": "dashboard_layout",
+      "target": "invoice_detail_page"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "children prop",
+      "weight": 0.9,
+      "source": "dashboard_layout",
+      "target": "invoice_edit_page"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/app/(dashboard)/layout.js",
+      "source_location": "children prop",
+      "weight": 0.9,
+      "source": "dashboard_layout",
+      "target": "settings_page"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Sidebar.js",
+      "source_location": "line 88",
+      "weight": 1.0,
+      "source": "sidebar_component",
+      "target": "auth_signout"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "docs/superpowers/plans/2026-05-11-auth-system.md",
+      "source_location": "Task 3",
+      "weight": 1.0,
+      "source": "rationale_server_action_pattern",
+      "target": "sidebar_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-05-11-auth-system.md",
+      "source_location": "Task 3",
+      "weight": 1.0,
+      "source": "auth_system_plan",
+      "target": "sidebar_component"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/components/TopBar.js",
+      "source_location": null,
+      "weight": 0.6,
+      "source": "topbar_component",
+      "target": "sidebar_component"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-05-11-auth-system.md",
+      "source_location": "Task 4",
+      "weight": 1.0,
+      "source": "auth_system_plan",
+      "target": "topbar_component"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": null,
+      "source_location": null,
+      "weight": 0.7,
+      "source": "invoices_new_page",
+      "target": "invoices_scan_page"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": null,
+      "source_location": null,
+      "weight": 0.8,
+      "source": "invoice_detail_page",
+      "target": "invoice_edit_page"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": null,
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_auth_guard",
+      "target": "concept_supabase_session"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/actions/auth.js",
+      "source_location": "line 7",
+      "weight": 1.0,
+      "source": "auth_signout",
+      "target": "supabase_server_client"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "docs/superpowers/plans/2026-05-11-auth-system.md",
+      "source_location": "Task 2",
+      "weight": 1.0,
+      "source": "rationale_server_action_pattern",
+      "target": "auth_signout"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-05-11-auth-system.md",
+      "source_location": "Task 2",
+      "weight": 1.0,
+      "source": "auth_system_plan",
+      "target": "auth_signout"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "rationale_anthropic_server_only",
+      "target": "anthropic_client"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "rationale_supabase_ssr_split",
+      "target": "supabase_browser_client"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "rationale_supabase_ssr_split",
+      "target": "supabase_server_client"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "line 6",
+      "weight": 1.0,
+      "source": "invoicemath_calculatesubtotal",
+      "target": "invoicemath_calculatelinetotal"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "line 13",
+      "weight": 1.0,
+      "source": "invoicemath_calculatetotal",
+      "target": "invoicemath_calculategst"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/utils/invoiceMath.js",
+      "source_location": "line 9",
+      "weight": 1.0,
+      "source": "invoice_gst_rate",
+      "target": "invoicemath_calculategst"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/mileageEstimator.js",
+      "source_location": "line 4",
+      "weight": 1.0,
+      "source": "mileageestimator_estimatemileage",
+      "target": "mileageestimator_mileage_table"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/utils/pdfTemplate.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "pdftemplate_generateinvoicepdf",
+      "target": "invoice_template_html"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_md_project",
+      "target": "rationale_anthropic_server_only"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_md_project",
+      "target": "rationale_supabase_ssr_split"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "dual_layer_auth_guard",
+      "label": "Dual-Layer Auth Guard (Middleware + Layout Server Check)",
+      "nodes": [
+        "middleware",
+        "supabase_middleware",
+        "dashboard_layout"
+      ],
+      "relation": "implement",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/middleware.js"
+    },
+    {
+      "id": "dashboard_shell",
+      "label": "Dashboard Shell (Layout + Sidebar + TopBar)",
+      "nodes": [
+        "dashboard_layout",
+        "sidebar_component",
+        "topbar_component"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(dashboard)/layout.js"
+    },
+    {
+      "id": "invoice_crud_pages",
+      "label": "Invoice CRUD Page Group (New, Scan, Detail, Edit)",
+      "nodes": [
+        "invoices_new_page",
+        "invoices_scan_page",
+        "invoice_detail_page",
+        "invoice_edit_page"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": null
+    },
+    {
+      "id": "auth_flow_triad",
+      "label": "Auth Flow: Middleware + Server Client + signOut Action",
+      "nodes": [
+        "supabase_middleware",
+        "supabase_server_client",
+        "auth_signout"
+      ],
+      "relation": "implement",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/lib/supabase/middleware.js"
+    },
+    {
+      "id": "invoice_calculation_pipeline",
+      "label": "Invoice Calculation Pipeline",
+      "nodes": [
+        "invoicemath_calculatelinetotal",
+        "invoicemath_calculatesubtotal",
+        "invoicemath_calculatetotal"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/invoiceMath.js"
+    },
+    {
+      "id": "dashboard_shell_triad",
+      "label": "Dashboard Shell: Sidebar + TopBar + signOut",
+      "nodes": [
+        "sidebar_component",
+        "topbar_component",
+        "auth_signout"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "src/components/Sidebar.js"
+    }
+  ],
+  "built_at_commit": "eaff4a9028495cb4a539e5ec719970faed6a6c2c"
+}
