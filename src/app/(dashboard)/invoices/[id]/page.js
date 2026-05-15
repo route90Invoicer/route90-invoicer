@@ -44,7 +44,7 @@ export default async function InvoicePage({ params }) {
       : '—'
 
   return (
-    <div style={{ maxWidth: 900, margin: '0 auto' }}>
+    <div className="max-w-[900px] mx-auto">
 
       {/* Action bar / Page header */}
       <InvoiceActions
@@ -54,16 +54,10 @@ export default async function InvoicePage({ params }) {
       />
 
       {/* Invoice document */}
-      <div style={{
-        backgroundColor: 'white',
-        borderRadius: 14,
-        border: '0.5px solid rgba(0,0,0,0.08)',
-        padding: '40px 48px',
-        marginTop: 20,
-      }}>
+      <div className="bg-white rounded-[14px] border border-black/[0.08] mt-5 p-5 sm:p-8 lg:p-12">
 
         {/* HEADER */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 36 }}>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-5 sm:gap-4 mb-8 sm:mb-9">
           <div>
             <div style={{ fontSize: 20, fontWeight: 700, color: '#1D1D1F', marginBottom: 6 }}>
               {bp?.biller_company_name}
@@ -84,11 +78,11 @@ export default async function InvoicePage({ params }) {
             )}
           </div>
 
-          <div style={{ textAlign: 'right' }}>
+          <div className="sm:text-right">
             <div style={{ fontSize: 26, fontWeight: 800, color: '#4F46E5', letterSpacing: '-0.02em', marginBottom: 14 }}>
               INVOICE
             </div>
-            <table style={{ borderSpacing: 0, marginLeft: 'auto' }}>
+            <table style={{ borderSpacing: 0 }} className="sm:ml-auto">
               <tbody>
                 {[
                   ['Invoice #', invoice.invoice_number],
@@ -131,7 +125,8 @@ export default async function InvoicePage({ params }) {
           <div style={{ fontSize: 10, fontWeight: 700, color: '#8E8E93', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>
             Transportation Services
           </div>
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+          <div className="overflow-x-auto -mx-5 sm:mx-0 px-5 sm:px-0">
+          <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 640 }}>
             <thead>
               <tr style={{ backgroundColor: '#F2F2F7' }}>
                 {[
@@ -196,6 +191,7 @@ export default async function InvoicePage({ params }) {
               })}
             </tbody>
           </table>
+          </div>
         </div>
 
         {/* BORDER FEES */}
@@ -204,7 +200,8 @@ export default async function InvoicePage({ params }) {
             <div style={{ fontSize: 10, fontWeight: 700, color: '#8E8E93', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>
               Border Fees / Adjustments
             </div>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <div className="overflow-x-auto -mx-5 sm:mx-0 px-5 sm:px-0">
+            <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 480 }}>
               <thead>
                 <tr style={{ backgroundColor: '#F2F2F7' }}>
                   <th style={{ padding: '7px 10px', fontSize: 10, fontWeight: 700, color: '#6E6E73', textTransform: 'uppercase', letterSpacing: '0.04em', textAlign: 'left', borderRadius: '6px 0 0 6px' }}>
@@ -228,12 +225,13 @@ export default async function InvoicePage({ params }) {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         )}
 
         {/* TOTALS */}
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 32 }}>
-          <div style={{ minWidth: 270 }}>
+        <div className="flex sm:justify-end mb-8">
+          <div className="w-full sm:w-auto sm:min-w-[270px]">
             {[
               ['Subtotal', formatCAD(invoice.subtotal)],
               [`GST (${fmtGstRate(invoice.gst_rate_snapshot)})`, formatCAD(invoice.gst_amount)],

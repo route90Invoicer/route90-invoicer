@@ -52,13 +52,14 @@ export default function InvoiceActions({ invoice, trips, billingProfile }) {
         </span>
       }
       actions={
-        <div className="flex gap-2 items-center flex-wrap">
+        <div className="grid grid-cols-2 gap-2 w-full sm:flex sm:gap-2 sm:items-center sm:flex-wrap sm:w-auto">
           <Button
             variant="secondary"
             size="sm"
             icon={FileDown}
             loading={pdfLoading}
             onClick={handleExportPDF}
+            className="w-full sm:w-auto"
           >
             Export PDF
           </Button>
@@ -68,6 +69,7 @@ export default function InvoiceActions({ invoice, trips, billingProfile }) {
             size="sm"
             icon={Pencil}
             onClick={() => router.push(`/invoices/${invoice.id}/edit`)}
+            className="w-full sm:w-auto"
           >
             Edit
           </Button>
@@ -79,6 +81,7 @@ export default function InvoiceActions({ invoice, trips, billingProfile }) {
               icon={Send}
               loading={isPending && activeAction === 'sent'}
               onClick={() => handleStatusChange('sent', markInvoiceSent)}
+              className="w-full sm:w-auto"
             >
               Mark as Sent
             </Button>
@@ -91,6 +94,7 @@ export default function InvoiceActions({ invoice, trips, billingProfile }) {
               icon={CheckCircle}
               loading={isPending && activeAction === 'paid'}
               onClick={() => handleStatusChange('paid', markInvoicePaid)}
+              className="w-full sm:w-auto"
             >
               Mark as Paid
             </Button>
@@ -103,7 +107,7 @@ export default function InvoiceActions({ invoice, trips, billingProfile }) {
               icon={Trash2}
               loading={isPending && activeAction === 'delete'}
               onClick={handleDelete}
-              className="text-[#FF3B30] hover:text-[#FF3B30] hover:bg-red-50"
+              className="w-full sm:w-auto text-[#FF3B30] hover:text-[#FF3B30] hover:bg-red-50"
             >
               Delete
             </Button>

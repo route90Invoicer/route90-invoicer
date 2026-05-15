@@ -92,10 +92,41 @@ export default function RateRulesTab({ rateRules, drivers, billingProfiles }) {
     },
   ]
 
+  const mobileCard = (row) => (
+    <div className="flex flex-col gap-2">
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-[14px] font-semibold text-[#1D1D1F] truncate">{row.label}</span>
+            <Badge variant={row.crew_type === 'team' ? 'info' : 'draft'}>
+              {row.crew_type === 'team' ? 'Team' : 'Solo'}
+            </Badge>
+          </div>
+          {Array.isArray(row.driver_names_snapshot) && row.driver_names_snapshot.length > 0 && (
+            <div className="text-[12.5px] text-[#6E6E73] truncate">
+              {row.driver_names_snapshot.join(', ')}
+            </div>
+          )}
+          {row.rate_per_mile != null && (
+            <div className="text-[12px] text-[#1D1D1F] mt-1 tabular-nums">
+              ${parseFloat(row.rate_per_mile).toFixed(4)}/mile
+            </div>
+          )}
+        </div>
+        <div className="flex flex-col items-end gap-2 flex-shrink-0">
+          <ToggleSwitch checked={row.is_active} onChange={() => handleToggle(row)} />
+          <Button variant="secondary" size="sm" onClick={(e) => { e.stopPropagation(); open(row) }}>
+            Edit
+          </Button>
+        </div>
+      </div>
+    </div>
+  )
+
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 16 }}>
-        <Button variant="primary" icon={Plus} onClick={() => open()}>
+      <div className="flex justify-end mb-4">
+        <Button variant="primary" icon={Plus} onClick={() => open()} className="w-full sm:w-auto">
           Add Rule
         </Button>
       </div>
@@ -116,10 +147,11 @@ export default function RateRulesTab({ rateRules, drivers, billingProfiles }) {
           </button>
         </div>
       )}
-      <Card>
+      <Card padding="none">
         <DataTable
           columns={columns}
           data={rateRules}
+          mobileCard={mobileCard}
           emptyMessage="No rate rules yet — add one to get started."
         />
       </Card>

@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
-import { Eye, Pencil, Download, FileText, TrendingUp, TrendingDown, Minus } from 'lucide-react'
+import { Eye, Pencil, Download, FileText, TrendingUp, TrendingDown, Minus, ChevronRight } from 'lucide-react'
 
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
@@ -79,23 +79,56 @@ function MiniBarChart({ bars }) {
 function SummaryCard({ label, value, trend, bars }) {
   const TrendIcon = trend.direction === 'up' ? TrendingUp : trend.direction === 'down' ? TrendingDown : Minus
   return (
-    <div className="flex-1 min-w-0 bg-white rounded-[14px] border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.06)] p-5">
+    <div className="min-w-0 bg-white rounded-[14px] border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.06)] p-4 sm:p-5">
       <div className="flex items-start justify-between gap-2 mb-3">
-        <span className="text-[11px] font-semibold tracking-[0.07em] uppercase text-[#6E6E73] leading-snug">
+        <span className="text-[10.5px] sm:text-[11px] font-semibold tracking-[0.07em] uppercase text-[#6E6E73] leading-snug">
           {label}
         </span>
         <MiniBarChart bars={bars} />
       </div>
-      <div className="text-[28px] font-bold tracking-tight text-[#1D1D1F] leading-none tabular-nums mb-2">
+      <div className="text-[22px] sm:text-[28px] font-bold tracking-tight text-[#1D1D1F] leading-none tabular-nums mb-2 truncate">
         {value}
       </div>
       <div className="flex items-center gap-1.5">
         <TrendIcon size={12} strokeWidth={2} style={{ color: trend.color, flexShrink: 0 }} />
-        <span className="text-[11.5px] leading-none" style={{ color: trend.color }}>
+        <span className="text-[11px] sm:text-[11.5px] leading-none truncate" style={{ color: trend.color }}>
           {trend.text}
         </span>
       </div>
     </div>
+  )
+}
+
+// Mobile invoice card — replaces table row on small screens
+function InvoiceMobileCard({ invoice }) {
+  const statusLabel =
+    invoice.status.charAt(0).toUpperCase() + invoice.status.slice(1)
+  return (
+    <Link
+      href={`/invoices/${invoice.id}`}
+      className="flex items-center gap-3 px-4 py-4 border-b border-black/[0.05] last:border-0 no-underline active:bg-[#F8F8FA] transition-colors duration-100 min-h-[64px]"
+    >
+      <div className="flex-1 min-w-0 flex flex-col gap-1">
+        <div className="flex items-center gap-2 min-w-0">
+          <span className="text-[14px] font-semibold text-[#1D1D1F] tracking-tight truncate">
+            {invoice.invoice_number}
+          </span>
+          <Badge variant={invoice.status}>{statusLabel}</Badge>
+        </div>
+        <div className="text-[13px] text-[#6E6E73] truncate">
+          {invoice.profileLabel}
+        </div>
+      </div>
+      <div className="flex flex-col items-end gap-1 flex-shrink-0">
+        <span className="text-[14px] font-semibold text-[#1D1D1F] tabular-nums">
+          {formatCAD(invoice.total)}
+        </span>
+        <span className="text-[11px] text-[#8E8E93]">
+          {invoice.tripCount} trip{invoice.tripCount !== 1 ? 's' : ''}
+        </span>
+      </div>
+      <ChevronRight size={18} strokeWidth={1.5} className="text-[#C7C7CC] flex-shrink-0" />
+    </Link>
   )
 }
 
@@ -271,22 +304,22 @@ export default function DashboardClient({ invoices }) {
   )
 
   const headerActions = (
-    <div className="flex items-center gap-2">
-      <Link href="/invoices/scan">
-        <Button variant="secondary" size="md">Scan Trip Sheet</Button>
+    <div className="flex items-center gap-2 w-full sm:w-auto">
+      <Link href="/invoices/scan" className="flex-1 sm:flex-none">
+        <Button variant="secondary" size="md" className="w-full sm:w-auto">Scan Trip Sheet</Button>
       </Link>
-      <Link href="/invoices/new">
-        <Button variant="primary" size="md">New Invoice</Button>
+      <Link href="/invoices/new" className="flex-1 sm:flex-none">
+        <Button variant="primary" size="md" className="w-full sm:w-auto">New Invoice</Button>
       </Link>
     </div>
   )
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-5 sm:gap-6">
       <PageHeader title="Dashboard" actions={headerActions} />
 
-      {/* Summary cards */}
-      <div className="flex gap-4">
+      {/* Summary cards: 2-col mobile, 4-col desktop */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {cards.map(card => (
           <SummaryCard key={card.label} {...card} />
         ))}
@@ -300,12 +333,12 @@ export default function DashboardClient({ invoices }) {
             title="No invoices yet"
             description="Create your first invoice manually or scan a handwritten trip sheet."
             action={
-              <div className="flex items-center gap-2">
-                <Link href="/invoices/new">
-                  <Button variant="primary" size="md">New Invoice</Button>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full">
+                <Link href="/invoices/new" className="w-full sm:w-auto">
+                  <Button variant="primary" size="md" className="w-full sm:w-auto">New Invoice</Button>
                 </Link>
-                <Link href="/invoices/scan">
-                  <Button variant="secondary" size="md">Scan Trip Sheet</Button>
+                <Link href="/invoices/scan" className="w-full sm:w-auto">
+                  <Button variant="secondary" size="md" className="w-full sm:w-auto">Scan Trip Sheet</Button>
                 </Link>
               </div>
             }
@@ -313,7 +346,7 @@ export default function DashboardClient({ invoices }) {
         </Card>
       ) : (
         <Card padding="none">
-          <div className="px-5 pt-4 pb-0">
+          <div className="px-3 sm:px-5 pt-4 pb-0 overflow-x-auto">
             <FilterTabs active={activeTab} onChange={setActiveTab} />
           </div>
 
@@ -322,36 +355,45 @@ export default function DashboardClient({ invoices }) {
               No {activeTab.toLowerCase()} invoices.
             </div>
           ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-[13px]">
-                <thead>
-                  <tr>
-                    {[
-                      { label: 'Invoice #', align: 'left' },
-                      { label: 'Billing Profile', align: 'left' },
-                      { label: 'Period', align: 'left' },
-                      { label: 'Trips', align: 'center' },
-                      { label: 'Amount', align: 'right' },
-                      { label: 'Status', align: 'left' },
-                      { label: '', align: 'left' },
-                    ].map(({ label, align }) => (
-                      <th
-                        key={label}
-                        style={{ textAlign: align }}
-                        className="px-4 py-2.5 text-[11px] font-semibold tracking-[0.05em] uppercase text-[#6E6E73] border-b border-black/[0.08] whitespace-nowrap bg-[#F9F9FB]"
-                      >
-                        {label}
-                      </th>
+            <>
+              {/* Mobile: card-per-row list */}
+              <div className="md:hidden">
+                {filtered.map(invoice => (
+                  <InvoiceMobileCard key={invoice.id} invoice={invoice} />
+                ))}
+              </div>
+              {/* Desktop: full table */}
+              <div className="overflow-x-auto hidden md:block">
+                <table className="w-full border-collapse text-[13px]">
+                  <thead>
+                    <tr>
+                      {[
+                        { label: 'Invoice #', align: 'left' },
+                        { label: 'Billing Profile', align: 'left' },
+                        { label: 'Period', align: 'left' },
+                        { label: 'Trips', align: 'center' },
+                        { label: 'Amount', align: 'right' },
+                        { label: 'Status', align: 'left' },
+                        { label: '', align: 'left' },
+                      ].map(({ label, align }) => (
+                        <th
+                          key={label}
+                          style={{ textAlign: align }}
+                          className="px-4 py-2.5 text-[11px] font-semibold tracking-[0.05em] uppercase text-[#6E6E73] border-b border-black/[0.08] whitespace-nowrap bg-[#F9F9FB]"
+                        >
+                          {label}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filtered.map(invoice => (
+                      <InvoiceRow key={invoice.id} invoice={invoice} />
                     ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {filtered.map(invoice => (
-                    <InvoiceRow key={invoice.id} invoice={invoice} />
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </tbody>
+                </table>
+              </div>
+            </>
           )}
         </Card>
       )}

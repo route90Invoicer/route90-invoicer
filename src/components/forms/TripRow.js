@@ -49,13 +49,17 @@ function TripRow({ trip, tripIndex, onChange, onRemove, trucks, rateRules, rowSt
     onChange(tripIndex, updated)
   }, [trip, rateRules, trucks, onChange, tripIndex])
 
-  // Debounced mileage estimator — fires 600ms after pickup_city/delivery_city settle
+  // Debounced mileage estimator — fires 600ms after pickup_city/delivery_city settle.
+  // Skips when miles is already populated, so scanned/km-converted values are never overwritten.
   useEffect(() => {
     const pickup   = (trip.pickup_city   ?? '').trim()
     const delivery = (trip.delivery_city ?? '').trim()
 
     // Skip if either field is blank
     if (!pickup || !delivery) return
+
+    // Skip if miles is already set (preserve scan/km-converted/user-entered values)
+    if ((parseFloat(trip.total_miles) || 0) > 0) return
 
     const cacheKey = `${pickup.toLowerCase()}|${delivery.toLowerCase()}`
 
@@ -140,9 +144,9 @@ function TripRow({ trip, tripIndex, onChange, onRemove, trucks, rateRules, rowSt
           type="button"
           onClick={() => onRemove(tripIndex)}
           title="Remove trip"
-          className="w-6 h-6 flex items-center justify-center rounded-lg text-[#AEAEB2] hover:text-[#FF3B30] hover:bg-red-50 transition-colors duration-100 cursor-pointer bg-transparent border-none"
+          className="w-10 h-10 lg:w-6 lg:h-6 flex items-center justify-center rounded-lg text-[#AEAEB2] hover:text-[#FF3B30] hover:bg-red-50 transition-colors duration-100 cursor-pointer bg-transparent border-none flex-shrink-0"
         >
-          <X size={14} strokeWidth={2} />
+          <X size={16} strokeWidth={2} />
         </button>
       </div>
 
@@ -150,7 +154,7 @@ function TripRow({ trip, tripIndex, onChange, onRemove, trucks, rateRules, rowSt
       <div className="p-4 flex flex-col gap-3">
 
         {/* Row 1: RIG Inv #, Order #s, Date range */}
-        <div className="grid grid-cols-[140px_1fr_auto] gap-3 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-[140px_1fr_auto] gap-3 items-end">
           <div className="flex flex-col gap-1">
             <label className="text-[10.5px] font-semibold tracking-[0.06em] uppercase text-[#8E8E93]">RIG Inv #</label>
             <input
@@ -174,26 +178,24 @@ function TripRow({ trip, tripIndex, onChange, onRemove, trucks, rateRules, rowSt
             <label className="text-[10.5px] font-semibold tracking-[0.06em] uppercase text-[#8E8E93]">Date Range</label>
             <div className="flex items-center gap-1.5">
               <input
-                className={inp}
+                className={`${inp} flex-1 lg:flex-none lg:w-[132px]`}
                 type="date"
                 value={trip.trip_date_start}
                 onChange={e => set('trip_date_start', e.target.value)}
-                style={{ width: 132 }}
               />
               <span className="text-[11px] text-[#8E8E93]">–</span>
               <input
-                className={inp}
+                className={`${inp} flex-1 lg:flex-none lg:w-[132px]`}
                 type="date"
                 value={trip.trip_date_end}
                 onChange={e => set('trip_date_end', e.target.value)}
-                style={{ width: 132 }}
               />
             </div>
           </div>
         </div>
 
         {/* Row 2: Truck, Rate Rule, Crew type, Driver names */}
-        <div className="grid grid-cols-[100px_1fr_auto] gap-3 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[100px_1fr_auto] gap-3 items-start">
           <div className="flex flex-col gap-1">
             <label className="text-[10.5px] font-semibold tracking-[0.06em] uppercase text-[#8E8E93]">Truck</label>
             <select
@@ -292,8 +294,8 @@ function TripRow({ trip, tripIndex, onChange, onRemove, trucks, rateRules, rowSt
             )}
           </div>
 
-          {/* Crew badge (read-only display, mirrors current crew_type) */}
-          <div className="flex flex-col gap-1">
+          {/* Crew badge (read-only display, mirrors current crew_type) — desktop only; redundant on mobile */}
+          <div className="hidden lg:flex flex-col gap-1">
             <label className="text-[10.5px] font-semibold tracking-[0.06em] uppercase text-[#8E8E93]">Crew</label>
             <div className="text-[13px] text-[#6E6E73] pt-[7px]">
               {trip.crew_type === 'team' ? 'Team' : 'Solo'}
@@ -302,8 +304,8 @@ function TripRow({ trip, tripIndex, onChange, onRemove, trucks, rateRules, rowSt
         </div>
 
         {/* Row 3: Pickup City, Delivery City, Route Summary, KM, Miles, Rate, Amount */}
-        <div className="grid grid-cols-[1fr_1fr_88px_88px_80px_auto] gap-3 items-end">
-          <div className="flex flex-col gap-1">
+        <div className="grid grid-cols-2 lg:grid-cols-[1fr_1fr_88px_88px_80px_auto] gap-3 items-end">
+          <div className="flex flex-col gap-1 col-span-2 lg:col-span-1">
             <label className="text-[10.5px] font-semibold tracking-[0.06em] uppercase text-[#8E8E93]">Pickup City</label>
             <input
               className={inp}
@@ -312,7 +314,7 @@ function TripRow({ trip, tripIndex, onChange, onRemove, trucks, rateRules, rowSt
               placeholder="Edmonton, AB"
             />
           </div>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 col-span-2 lg:col-span-1">
             <label className="text-[10.5px] font-semibold tracking-[0.06em] uppercase text-[#8E8E93]">Delivery City</label>
             <input
               className={inp}
@@ -362,21 +364,21 @@ function TripRow({ trip, tripIndex, onChange, onRemove, trucks, rateRules, rowSt
               title="Rate per mile"
             />
           </div>
-          <div className="flex flex-col gap-1 items-end">
+          <div className="flex flex-col gap-1 lg:items-end col-span-2 lg:col-span-1">
             <label className="text-[10.5px] font-semibold tracking-[0.06em] uppercase text-[#8E8E93]">Amount</label>
-            <div className="flex flex-col items-end">
+            <div className="flex flex-col w-full lg:items-end">
               <input
-                className={inp}
+                className={`${inp} w-full lg:w-24`}
                 type="number"
                 min="0"
                 step="0.01"
                 value={parseFloat(trip.amount || 0).toFixed(2)}
                 onChange={e => set('amount', parseFloat(e.target.value) || 0)}
                 title="Auto-calculated from miles × rate. Edit to override."
-                style={{ textAlign: 'right', fontWeight: 700, color: '#4F46E5', fontSize: 16, width: 96 }}
+                style={{ textAlign: 'right', fontWeight: 700, color: '#4F46E5', fontSize: 16 }}
               />
               {trip.rate_per_mile_snapshot > 0 && (
-                <span className="text-[10.5px] text-[#8E8E93] tabular-nums">
+                <span className="text-[10.5px] text-[#8E8E93] tabular-nums mt-1 text-right">
                   @ ${parseFloat(trip.rate_per_mile_snapshot).toFixed(4)}/mi
                 </span>
               )}
@@ -430,7 +432,7 @@ function TripRow({ trip, tripIndex, onChange, onRemove, trucks, rateRules, rowSt
         )}
 
         {/* Row 4: Border fee */}
-        <div className="flex items-start gap-4 pt-1 border-t border-black/[0.05]">
+        <div className="flex flex-col lg:flex-row lg:items-start gap-3 lg:gap-4 pt-1 border-t border-black/[0.05]">
           <div className="flex items-center gap-2.5 mt-2">
             <ToggleSwitch
               checked={trip.has_border_fee}
@@ -439,28 +441,26 @@ function TripRow({ trip, tripIndex, onChange, onRemove, trucks, rateRules, rowSt
             <span className="text-[12.5px] text-[#6E6E73] font-medium">Border fee</span>
           </div>
           {trip.has_border_fee && (
-            <div className="flex items-end gap-3">
-              <div className="flex flex-col gap-1">
+            <div className="flex flex-col sm:flex-row sm:items-end gap-3 w-full lg:w-auto">
+              <div className="flex flex-col gap-1 w-full sm:w-auto">
                 <label className="text-[10.5px] font-semibold tracking-[0.06em] uppercase text-[#8E8E93]">Fee ($)</label>
                 <input
-                  className={inp}
+                  className={`${inp} w-full sm:w-24`}
                   type="number"
                   min="0"
                   step="0.01"
                   value={trip.border_fee}
                   onChange={e => set('border_fee', e.target.value)}
                   placeholder="0.00"
-                  style={{ width: 96 }}
                 />
               </div>
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1 flex-1 sm:flex-none">
                 <label className="text-[10.5px] font-semibold tracking-[0.06em] uppercase text-[#8E8E93]">Note</label>
                 <input
-                  className={inp}
+                  className={`${inp} w-full sm:w-44`}
                   value={trip.border_fee_note}
                   onChange={e => set('border_fee_note', e.target.value)}
                   placeholder="e.g. FAST card fee"
-                  style={{ width: 180 }}
                 />
               </div>
             </div>

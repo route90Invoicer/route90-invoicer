@@ -240,9 +240,15 @@ export default function ScanInvoiceForm({ billingProfiles, trucks, allRateRules 
   // ── Estimate miles for a batch of trips inside one sheet ────────────────────
 
   async function estimateMilesForSheet(sheetId, mapped) {
+    // Only estimate when miles is missing/zero — preserve scanned (or km-converted) miles.
     const toEstimate = mapped
-      .map((t, i) => ({ i, pickup: t.pickup_city, delivery: t.delivery_city }))
-      .filter(({ pickup, delivery }) => pickup && delivery)
+      .map((t, i) => ({
+        i,
+        pickup:   t.pickup_city,
+        delivery: t.delivery_city,
+        miles:    parseFloat(t.total_miles) || 0,
+      }))
+      .filter(({ pickup, delivery, miles }) => pickup && delivery && miles === 0)
 
     if (toEstimate.length === 0) return
 
@@ -325,22 +331,37 @@ export default function ScanInvoiceForm({ billingProfiles, trucks, allRateRules 
 
     const mapped = (result.trips ?? []).map(mapScannedTrip)
 
-    // One scanned trip = one card. Match a single rule whose drivers cover all trip drivers.
-    // Solo (1 driver) → solo rule with that driver. Team (2 drivers) → team rule with both.
-    // If no rule covers exactly the trip's driver set, leave unset for manual selection.
+    // One scanned trip = one card. Match a single rule by crew_type:
+    //   1 driver  → look only at solo rules; pick the one whose driver appears.
+    //   2 drivers → look only at team rules; pick the one where BOTH drivers appear.
+    // No solo-fallback for team trips. If nothing matches, rate_rule_id stays unset
+    // and the user picks manually.
     const profileRules = allRateRules.filter(r => r.billing_profile_id === selectedProfileId)
 
     for (const trip of mapped) {
-      const drivers = trip.driver_names_snapshot ?? []
-      if (drivers.length === 0 || profileRules.length === 0) continue
+      const tripDrivers = (trip.driver_names_snapshot ?? [])
+        .map(n => String(n).toLowerCase().trim())
+        .filter(Boolean)
 
-      const tripNames = drivers.map(n => n.toLowerCase().trim())
+      if (tripDrivers.length === 0) continue
+
+      const expectedCrewType = tripDrivers.length >= 2 ? 'team' : 'solo'
+
+      // Default the trip's crew_type to match driver count, even if no rule matches —
+      // so the crew badge in the UI reflects what was scanned.
+      trip.crew_type = expectedCrewType
+
+      if (profileRules.length === 0) continue
 
       const matched = profileRules.find(rule => {
-        const ruleNames = (rule.driver_names_snapshot ?? []).map(n => n.toLowerCase().trim())
-        if (ruleNames.length !== tripNames.length) return false
-        return tripNames.every(tn =>
-          ruleNames.some(rn => rn.includes(tn) || tn.includes(rn))
+        if (rule.crew_type !== expectedCrewType) return false
+        const ruleNames = (rule.driver_names_snapshot ?? [])
+          .map(n => String(n).toLowerCase().trim())
+          .filter(Boolean)
+        // Every scanned driver must appear (substring either direction to tolerate
+        // partial names like "Dilbag Singh" vs "Dilbag Singh Dhaliwal").
+        return tripDrivers.every(td =>
+          ruleNames.some(rn => rn.includes(td) || td.includes(rn))
         )
       })
 
@@ -498,7 +519,7 @@ export default function ScanInvoiceForm({ billingProfiles, trucks, allRateRules 
     : null
 
   const saveButtons = (
-    <div style={{ display: 'flex', gap: 10 }}>
+    <div className="hidden sm:flex items-center gap-2.5">
       <Button variant="secondary" size="md" loading={saving} onClick={() => handleSave('draft')}>
         Save as Draft
       </Button>
@@ -509,7 +530,7 @@ export default function ScanInvoiceForm({ billingProfiles, trucks, allRateRules 
   )
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+    <div className="flex flex-col gap-5 sm:gap-6 pb-32 sm:pb-8">
       <PageHeader title="Scan Trip Sheet" actions={saveButtons} />
 
       {/* Billing Profile */}
@@ -577,7 +598,7 @@ export default function ScanInvoiceForm({ billingProfiles, trucks, allRateRules 
       {/* Invoice Header — shown once any trips exist */}
       {(anyScanned || allTrips.length > 0) && (
         <Card padding="md">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <FormField label="Invoice #" required>
               <input type="text" value={invoiceNumber} onChange={e => setInvoiceNumber(e.target.value)} style={INPUT} placeholder="e.g. R90-2026-001" />
             </FormField>
@@ -770,18 +791,18 @@ export default function ScanInvoiceForm({ billingProfiles, trucks, allRateRules 
 
       {/* Totals */}
       {allTrips.length > 0 && (
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Card padding="md">
-            <div style={{ minWidth: 280 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 48, fontSize: 14, color: '#1D1D1F', marginBottom: 8 }}>
-                <span>Subtotal</span><span>{formatCAD(subtotal)}</span>
+        <div className="flex sm:justify-end">
+          <Card padding="md" className="w-full sm:w-auto">
+            <div className="w-full sm:min-w-[280px]">
+              <div className="flex justify-between gap-6 sm:gap-12 text-[14px] text-[#1D1D1F] mb-2">
+                <span>Subtotal</span><span className="tabular-nums">{formatCAD(subtotal)}</span>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 48, fontSize: 14, color: '#1D1D1F', marginBottom: 12 }}>
+              <div className="flex justify-between gap-6 sm:gap-12 text-[14px] text-[#1D1D1F] mb-3">
                 <span>GST ({selectedProfile ? `${(gstRate * 100).toFixed(1)}%` : '—'})</span>
-                <span>{formatCAD(gstAmount)}</span>
+                <span className="tabular-nums">{formatCAD(gstAmount)}</span>
               </div>
-              <div style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: 12, display: 'flex', justifyContent: 'space-between', gap: 48, fontSize: 16, fontWeight: 700, color: '#4F46E5' }}>
-                <span>NET Payable</span><span>{formatCAD(total)}</span>
+              <div className="border-t border-black/[0.08] pt-3 flex justify-between gap-6 sm:gap-12 text-[16px] font-bold text-indigo-600">
+                <span>NET Payable</span><span className="tabular-nums">{formatCAD(total)}</span>
               </div>
             </div>
           </Card>
@@ -805,11 +826,25 @@ export default function ScanInvoiceForm({ billingProfiles, trucks, allRateRules 
         </div>
       )}
 
-      {/* Bottom save buttons */}
+      {/* Bottom save buttons — desktop inline; mobile uses sticky bar below */}
       {allTrips.length > 0 && (
-        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10, paddingBottom: 32 }}>
+        <div className="hidden sm:flex justify-end gap-2.5 pb-8">
           <Button variant="secondary" size="md" loading={saving} onClick={() => handleSave('draft')}>Save as Draft</Button>
           <Button variant="primary"   size="md" loading={saving} onClick={() => handleSave('draft')}>Save &amp; View Invoice</Button>
+        </div>
+      )}
+
+      {/* Mobile-only sticky bottom subtotal + save bar */}
+      {allTrips.length > 0 && (
+        <div className="sm:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-sm border-t border-black/[0.08] px-4 py-3 flex flex-col gap-2">
+          <div className="flex items-center justify-between text-[13px] text-[#6E6E73]">
+            <span>Total</span>
+            <span className="font-semibold text-indigo-600 text-[15px] tabular-nums">{formatCAD(total)}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button variant="secondary" size="md" loading={saving} onClick={() => handleSave('draft')} className="flex-1">Save Draft</Button>
+            <Button variant="primary"   size="md" loading={saving} onClick={() => handleSave('draft')} className="flex-1">Save &amp; View</Button>
+          </div>
         </div>
       )}
     </div>

@@ -61,10 +61,26 @@ export default function TrucksTab({ trucks }) {
     },
   ]
 
+  const mobileCard = (row) => (
+    <div className="flex items-center gap-3">
+      <div className="min-w-0 flex-1">
+        <div className="text-[14px] font-semibold text-[#1D1D1F]">Unit #{row.unit_number}</div>
+        <div className="text-[12.5px] text-[#6E6E73] mt-0.5 truncate">
+          {row.plate_number ? `${row.plate_number}` : '—'}
+          {row.province ? <span className="text-[#AEAEB2]"> · {row.province}</span> : null}
+        </div>
+      </div>
+      <ToggleSwitch checked={row.is_active} onChange={() => handleToggle(row)} />
+      <Button variant="secondary" size="sm" onClick={(e) => { e.stopPropagation(); open(row) }}>
+        Edit
+      </Button>
+    </div>
+  )
+
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 16 }}>
-        <Button variant="primary" icon={Plus} onClick={() => open()}>
+      <div className="flex justify-end mb-4">
+        <Button variant="primary" icon={Plus} onClick={() => open()} className="w-full sm:w-auto">
           Add Truck
         </Button>
       </div>
@@ -85,10 +101,11 @@ export default function TrucksTab({ trucks }) {
           </button>
         </div>
       )}
-      <Card>
+      <Card padding="none">
         <DataTable
           columns={columns}
           data={trucks}
+          mobileCard={mobileCard}
           emptyMessage="No trucks yet — add one to get started."
         />
       </Card>

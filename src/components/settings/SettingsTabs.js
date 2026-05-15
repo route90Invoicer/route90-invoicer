@@ -15,7 +15,8 @@ const TABS = [
 ]
 
 const tabButtonStyle = (active) => ({
-  padding: '10px 16px',
+  padding: '12px 16px',
+  minHeight: 44,
   fontSize: 14,
   fontWeight: active ? 600 : 400,
   color: active ? '#4F46E5' : '#6E6E73',
@@ -27,6 +28,7 @@ const tabButtonStyle = (active) => ({
   marginBottom: -1,
   transition: 'color 0.15s ease',
   whiteSpace: 'nowrap',
+  flexShrink: 0,
 })
 
 export default function SettingsTabs({ billingProfiles, drivers, trucks, rateRules }) {

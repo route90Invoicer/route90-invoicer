@@ -93,10 +93,33 @@ export default function DriversTab({ drivers }) {
     },
   ]
 
+  const mobileCard = (row) => (
+    <div className="flex items-center gap-3">
+      <div style={{
+        width: 38, height: 38, borderRadius: '50%',
+        backgroundColor: '#EEF2FF', color: '#4F46E5',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontSize: 13, fontWeight: 700, flexShrink: 0,
+      }}>
+        {initials(row.full_name)}
+      </div>
+      <div className="min-w-0 flex-1">
+        <div className="text-[14px] font-semibold text-[#1D1D1F] truncate">{row.full_name}</div>
+        {row.license_class && (
+          <div className="text-[12px] text-[#6E6E73] truncate">{row.license_class}</div>
+        )}
+      </div>
+      <ToggleSwitch checked={row.is_active} onChange={() => handleToggle(row)} />
+      <Button variant="secondary" size="sm" onClick={(e) => { e.stopPropagation(); open(row) }}>
+        Edit
+      </Button>
+    </div>
+  )
+
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 16 }}>
-        <Button variant="primary" icon={Plus} onClick={() => open()}>
+      <div className="flex justify-end mb-4">
+        <Button variant="primary" icon={Plus} onClick={() => open()} className="w-full sm:w-auto">
           Add Driver
         </Button>
       </div>
@@ -117,10 +140,11 @@ export default function DriversTab({ drivers }) {
           </button>
         </div>
       )}
-      <Card>
+      <Card padding="none">
         <DataTable
           columns={columns}
           data={drivers}
+          mobileCard={mobileCard}
           emptyMessage="No drivers yet — add one to get started."
         />
       </Card>

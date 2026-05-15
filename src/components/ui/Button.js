@@ -10,8 +10,8 @@ const VARIANT_CLS = {
 }
 
 const SIZE_CLS = {
-  sm: 'h-8 px-3 text-[13px] gap-1.5',
-  md: 'h-9 px-4 text-[14px] gap-2',
+  sm: 'h-9 sm:h-8 px-3 text-[13px] gap-1.5',
+  md: 'h-11 sm:h-9 px-4 text-[14px] gap-2',
   lg: 'h-11 px-5 text-[15px] gap-2',
 }
 

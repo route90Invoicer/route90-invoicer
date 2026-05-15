@@ -160,7 +160,7 @@ export default function NewInvoiceForm({
         title={isEdit ? `Edit Invoice` : 'New Invoice'}
         subtitle={isEdit && initialData?.invoice_number ? initialData.invoice_number : undefined}
         actions={
-          <div className="flex items-center gap-2">
+          <div className="hidden sm:flex items-center gap-2">
             {isEdit ? (
               <>
                 <Link
@@ -219,7 +219,7 @@ export default function NewInvoiceForm({
 
       {/* Invoice Header */}
       <Card padding="md" header="Invoice Details">
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <FormField label="Invoice #" required>
             <input
               type="text"
@@ -274,7 +274,7 @@ export default function NewInvoiceForm({
 
       {/* Trips */}
       <div>
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between mb-3 gap-2">
           <h2 className="text-[15px] font-semibold text-[#1D1D1F] m-0">Trips</h2>
           <Button variant="ghost" size="sm" icon={Plus} onClick={addTrip}>
             Add trip
@@ -303,7 +303,7 @@ export default function NewInvoiceForm({
       </div>
 
       {/* Totals + Notes row */}
-      <div className="flex flex-col gap-4 items-end">
+      <div className="flex flex-col gap-4 sm:items-end">
         {/* Notes */}
         <Card padding="md" className="w-full">
           <FormField label="Notes (optional)">
@@ -319,17 +319,17 @@ export default function NewInvoiceForm({
         </Card>
 
         {/* Totals */}
-        <Card padding="md">
-          <div className="min-w-[280px] flex flex-col gap-2">
-            <div className="flex justify-between gap-12 text-[14px] text-[#6E6E73]">
+        <Card padding="md" className="w-full sm:w-auto">
+          <div className="w-full sm:min-w-[280px] flex flex-col gap-2">
+            <div className="flex justify-between gap-6 sm:gap-12 text-[14px] text-[#6E6E73]">
               <span>Subtotal</span>
               <span className="text-[#1D1D1F] tabular-nums">{formatCAD(subtotal)}</span>
             </div>
-            <div className="flex justify-between gap-12 text-[14px] text-[#6E6E73]">
+            <div className="flex justify-between gap-6 sm:gap-12 text-[14px] text-[#6E6E73]">
               <span>GST ({selectedProfile ? `${(gstRate * 100).toFixed(1)}%` : '—'})</span>
               <span className="text-[#1D1D1F] tabular-nums">{formatCAD(gstAmount)}</span>
             </div>
-            <div className="flex justify-between gap-12 text-[16px] font-bold text-indigo-600 pt-3 border-t border-black/[0.08]">
+            <div className="flex justify-between gap-6 sm:gap-12 text-[16px] font-bold text-indigo-600 pt-3 border-t border-black/[0.08]">
               <span>NET Payable</span>
               <span className="tabular-nums">{formatCAD(total)}</span>
             </div>
@@ -345,25 +345,38 @@ export default function NewInvoiceForm({
       )}
 
       {/* Sticky bottom bar */}
-      <div className="sticky bottom-0 bg-white/90 backdrop-blur-sm border-t border-black/[0.07] -mx-6 px-6 py-3 flex items-center justify-between z-20">
-        <div className="flex items-center gap-4 text-[13px] text-[#6E6E73]">
+      <div className="sticky bottom-0 bg-white/95 backdrop-blur-sm border-t border-black/[0.07] -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 z-20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        {/* Mobile: compact total only. Desktop: full breakdown */}
+        <div className="sm:hidden flex items-center justify-between text-[13px] text-[#6E6E73]">
+          <span>Total</span>
+          <span className="font-semibold text-indigo-600 text-[15px] tabular-nums">{formatCAD(total)}</span>
+        </div>
+        <div className="hidden sm:flex items-center gap-4 text-[13px] text-[#6E6E73]">
           <span>Subtotal <strong className="text-[#1D1D1F]">{formatCAD(subtotal)}</strong></span>
           <span className="text-[#D1D1D6]">|</span>
           <span>GST <strong className="text-[#1D1D1F]">{formatCAD(gstAmount)}</strong></span>
           <span className="text-[#D1D1D6]">|</span>
           <span className="font-semibold text-indigo-600">Total <strong>{formatCAD(total)}</strong></span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 w-full sm:w-auto">
           {isEdit ? (
-            <Button variant="primary" size="md" loading={saving} onClick={() => handleSave(initialData?.status ?? 'draft')}>
-              Save Changes
-            </Button>
+            <>
+              <Link
+                href={`/invoices/${invoiceId}`}
+                className="sm:hidden flex-1 inline-flex items-center justify-center h-11 px-4 text-[14px] font-medium rounded-[9px] border border-indigo-200 bg-white text-indigo-600 hover:bg-indigo-50 transition-colors duration-150"
+              >
+                Cancel
+              </Link>
+              <Button variant="primary" size="md" loading={saving} onClick={() => handleSave(initialData?.status ?? 'draft')} className="flex-1 sm:flex-none">
+                Save Changes
+              </Button>
+            </>
           ) : (
             <>
-              <Button variant="secondary" size="md" loading={saving} onClick={() => handleSave('draft')}>
+              <Button variant="secondary" size="md" loading={saving} onClick={() => handleSave('draft')} className="flex-1 sm:flex-none">
                 Save as Draft
               </Button>
-              <Button variant="primary" size="md" loading={saving} onClick={() => handleSave('draft')}>
+              <Button variant="primary" size="md" loading={saving} onClick={() => handleSave('draft')} className="flex-1 sm:flex-none">
                 Save &amp; View
               </Button>
             </>

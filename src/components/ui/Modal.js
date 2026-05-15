@@ -19,9 +19,9 @@ export default function Modal({ isOpen, onClose, title, children, footer }) {
       role="dialog"
       aria-modal="true"
       onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
-      className="fixed inset-0 z-50 flex items-start justify-center px-4 pt-20 pb-20 bg-black/30 backdrop-blur-[2px]"
+      className="fixed inset-0 z-50 flex items-stretch justify-center bg-black/30 backdrop-blur-[2px] sm:items-start sm:px-4 sm:pt-20 sm:pb-20"
     >
-      <div className="bg-white rounded-[14px] border border-black/[0.06] w-full max-w-[520px] shadow-[0_24px_64px_rgba(0,0,0,0.14)] overflow-hidden flex flex-col max-h-[calc(100vh-120px)]">
+      <div className="bg-white border border-black/[0.06] w-full h-full flex flex-col overflow-hidden sm:rounded-[14px] sm:max-w-[520px] sm:h-auto sm:max-h-[calc(100vh-120px)] sm:shadow-[0_24px_64px_rgba(0,0,0,0.14)]">
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-black/[0.06] flex-shrink-0">
           <h2 className="m-0 text-[16px] font-semibold text-[#1D1D1F] tracking-tight">
@@ -30,7 +30,7 @@ export default function Modal({ isOpen, onClose, title, children, footer }) {
           <button
             onClick={onClose}
             aria-label="Close"
-            className="flex items-center justify-center w-7 h-7 rounded-lg text-[#AEAEB2] hover:text-[#6E6E73] hover:bg-[#F2F2F7] transition-colors duration-100"
+            className="flex items-center justify-center w-11 h-11 sm:w-7 sm:h-7 rounded-lg text-[#AEAEB2] hover:text-[#6E6E73] hover:bg-[#F2F2F7] transition-colors duration-100"
           >
             <X size={18} strokeWidth={2} />
           </button>

@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# binaries / archives (e.g. supabase CLI download)
+*.tar.gz
+supabase_linux_*
